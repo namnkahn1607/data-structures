@@ -51,7 +51,7 @@ class src2 {
     }
 
     public static main(): void {
-        // add linked lists
+        // add 2 linked lists
         const l1: ListNode | null = createSLList([1, 2, 3]);
         const l2: ListNode | null = createSLList([7, 8, 9]);
 

@@ -1,10 +1,7 @@
 /* data structures: Linked List */
 
 export class ListNode {
-    constructor(public val: number = 0, public next: ListNode | null = null) {
-        this.val = val;
-        this.next = next;
-    }
+    constructor(public val: number = 0, public next: ListNode | null = null) {}
 }
 
 export function createSLList(arr: number[]): ListNode | null {
@@ -43,7 +40,7 @@ export function convertToArray(head: ListNode | null): number[] {
 
     while (cur) {
         arr.push(cur.val);
-        cur = cur.next;
+        cur = cur.next!;
     }
 
     return arr;
@@ -60,7 +57,7 @@ export function distanceFromHead(head: ListNode | null, node: ListNode | null): 
         if (cur === node)
             break;
 
-        cur = cur.next;
+        cur = cur.next!;
         ++i;
     }
 

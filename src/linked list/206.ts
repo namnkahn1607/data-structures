@@ -8,7 +8,7 @@ class src206 {
             prv: ListNode | null = null;
 
         while (cur) {
-            const nxtNode: ListNode = cur.next;
+            const nxtNode: ListNode = cur.next!;
             cur.next = prv;
             prv = cur;
             cur = nxtNode;

@@ -1,5 +1,5 @@
 /* 144. binary tree preorder traversal */
-// #: tree + DFS/BFS
+// #: tree + BFS/DFS
 import { createBinaryTree, preorderTraverse, TreeNode } from "./binary tree";
 
 class src144 {
@@ -25,12 +25,14 @@ class src144 {
     // 2. morris traversal
 
     public static main(): void {
-        // add tree
-        const root: TreeNode | null = createBinaryTree([1, 2, 3, null, 4, 5, null]);
+        // add binary tree
+        const root: TreeNode | null = createBinaryTree(
+            [1, 2, 3, 4, 5, 6, 7, null, null, 8, 9, null, null, null, 10]
+        );
 
         // preorder the binary tree
-        let ans1: number[] = src144.preorderTraversal(root);
-        console.log(ans1.join(" "));
+        let ans: number[] = src144.preorderTraversal(root);
+        console.log(ans.join(" "));
 
         preorderTraverse(root);
     }

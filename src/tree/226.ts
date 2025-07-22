@@ -33,6 +33,22 @@ class src226 {
     }
 
     // 3. iterative DFS
+    static invertTree3(root: TreeNode | null): TreeNode | null {
+        const stack: (TreeNode | null)[] = [];
+        let cur: TreeNode | null = root;
+
+        while (stack.length > 0 || cur) {
+            if (cur) {
+                [cur.left, cur.right] = [cur.right, cur.left];
+                stack.push(cur.left);
+                cur = cur.right;
+            } else {
+                cur = stack.pop()!;
+            }
+        }
+
+        return root;
+    }
 
     public static main(): void {
         // add binary tree
@@ -46,6 +62,9 @@ class src226 {
 
         let ans2: TreeNode | null = src226.invertTree2(root);
         console.log(Trees.convertToArray(ans2).join(" "));
+
+        let ans3: TreeNode | null = src226.invertTree3(root);
+        console.log(Trees.convertToArray(ans3).join(" "));
     }
 }
 

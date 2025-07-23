@@ -32,7 +32,33 @@ class src104 {
     }
 
     // 2. divide and conquer
+    static maxDepth2(root: TreeNode | null): number {
+        if (!root) return 0;
 
+        return 1 + Math.max(
+            this.maxDepth2(root.left),
+            this.maxDepth2(root.right)
+        );
+    }
+
+    // 3. iterative DFS
+    static maxDepth3(root: TreeNode | null): number {
+        const stack: [TreeNode | null, number][] = [[root, 0]];
+        let depth = 0;
+
+        while (stack.length > 0) {
+            let cur = stack.pop()!;
+
+            if (cur[0]) {
+                stack.push([cur[0].right, 1 + cur[1]]);
+                stack.push([cur[0].left, 1 + cur[1]]);
+            } else {
+                depth = Math.max(depth, cur[1]);
+            }
+        }
+
+        return depth;
+    }
 
     public static main(): void {
         // add binary tree
@@ -41,8 +67,10 @@ class src104 {
         );
 
         // calculate binary tree's max depth
-        let ans1 = src104.maxDepth(root);
-        console.log(ans1);
+        let ans1: number = src104.maxDepth(root),
+            ans2: number = src104.maxDepth2(root),
+            ans3: number = src104.maxDepth3(root);
+        console.log(`${ans1} ${ans2} ${ans3}`);
     }
 }
 

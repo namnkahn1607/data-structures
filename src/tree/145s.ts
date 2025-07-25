@@ -23,6 +23,29 @@ class src145 {
     }
 
     // 2. iterative
+    static postorderTraversal2(root: TreeNode | null): number[] {
+        const ans: number[] = [];
+        const stack: TreeNode[] = [];
+        let [cur, lastVisit]: [TreeNode | null, TreeNode | null] = [root, null];
+
+        while (stack.length > 0 || cur) {
+            if (cur) {
+                stack.push(cur);
+                cur = cur.left;
+            } else {
+                const peek = stack[stack.length - 1];
+
+                if (peek.right && lastVisit !== peek.right) {
+                    cur = peek.right;
+                } else {
+                    ans.push(peek.val);
+                    lastVisit = stack.pop()!;
+                }
+            }
+        }
+
+        return ans;
+    }
 
     // 3. morris traversal
 
@@ -33,8 +56,11 @@ class src145 {
         );
 
         // postorder the binary tree
-        let ans = src145.postorderTraversal(root);
-        console.log(ans.join(" "));
+        let ans1 = src145.postorderTraversal(root);
+        console.log(ans1.join(" "));
+
+        let ans2 = src145.postorderTraversal2(root);
+        console.log(ans2.join(" "));
 
         postorderTraverse(root);
     }

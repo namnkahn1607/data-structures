@@ -16,11 +16,8 @@ class src104 {
             const cur = queue[i++];
             --levelLen;
 
-            if (cur.left)
-                queue.push(cur.left);
-
-            if (cur.right)
-                queue.push(cur.right);
+            if (cur.left) queue.push(cur.left);
+            if (cur.right) queue.push(cur.right);
 
             if (levelLen === 0) {
                 ++depth;

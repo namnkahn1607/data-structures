@@ -22,7 +22,7 @@ class src145 {
         return ans.reverse();
     }
 
-    // 2. iterative
+    // 2. iterative DFS - I
     static postorderTraversal2(root: TreeNode | null): number[] {
         const ans: number[] = [];
         const stack: TreeNode[] = [];
@@ -47,7 +47,36 @@ class src145 {
         return ans;
     }
 
-    // 3. morris traversal
+    // 3. iterative DFS - II
+    static postorderTraversal3(root: TreeNode | null): number[] {
+        const stack: (TreeNode | null)[] = [root];
+        const visit: boolean[] = [false];
+        const ans: number[] = [];
+
+        while (stack.length > 0) {
+            const cur = stack.pop();
+            const v = visit.pop();
+
+            if (cur) {
+                if (v) {
+                    ans.push(cur.val);
+                } else {
+                    stack.push(cur);
+                    visit.push(true);
+
+                    stack.push(cur.right);
+                    visit.push(false);
+
+                    stack.push(cur.left);
+                    visit.push(false);
+                }
+            }
+        }
+
+        return ans;
+    }
+
+    // 4. morris traversal
 
     public static main(): void {
         // add binary tree
@@ -61,6 +90,9 @@ class src145 {
 
         let ans2 = src145.postorderTraversal2(root);
         console.log(ans2.join(" "));
+
+        let ans3 = src145.postorderTraversal3(root);
+        console.log(ans3.join(" "));
 
         postorderTraverse(root);
     }

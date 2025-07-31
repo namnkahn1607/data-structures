@@ -58,13 +58,19 @@ class src226 {
 
         // invert the binary tree
         let ans1: TreeNode | null = src226.invertTree(root);
-        console.log(Trees.convertToArray(ans1).join(" "));
+        console.log(Trees.convertToArray(ans1).map(val => {
+            return val === null ? "null" : val
+        }).join(" "));
 
         let ans2: TreeNode | null = src226.invertTree2(root);
-        console.log(Trees.convertToArray(ans2).join(" "));
+        console.log(Trees.convertToArray(ans2).map(val => {
+            return val === null ? "null" : val
+        }).join(" "));
 
         let ans3: TreeNode | null = src226.invertTree3(root);
-        console.log(Trees.convertToArray(ans3).join(" "));
+        console.log(Trees.convertToArray(ans3).map(val => {
+            return val === null ? "null" : val
+        }).join(" "));
     }
 }
 

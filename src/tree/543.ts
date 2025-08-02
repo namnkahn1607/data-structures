@@ -7,8 +7,8 @@ class src543 {
     private static nodeMaxHeight(node: TreeNode | null, diameter: { val: number }): number {
         if (!node) return 0;
 
-        const left = this.nodeMaxHeight(node.left, diameter);
-        const right = this.nodeMaxHeight(node.right, diameter);
+        const left = src543.nodeMaxHeight(node.left, diameter);
+        const right = src543.nodeMaxHeight(node.right, diameter);
 
         diameter.val = Math.max(diameter.val, left + right);
 

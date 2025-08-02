@@ -11,7 +11,7 @@ class src100 {
         else if (!p || !q || p.val !== q.val)
             return false;
 
-        return this.isSameTree(p.left, q.left) && this.isSameTree(p.right, q.right);
+        return src100.isSameTree(p.left, q.left) && src100.isSameTree(p.right, q.right);
     }
 
     // 2. iterative DFS

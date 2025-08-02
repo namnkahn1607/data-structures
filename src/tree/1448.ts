@@ -12,8 +12,8 @@ class src1448 {
             mx = Math.max(mx, node.val);
         }
 
-        this.isGood(node.left, ans, mx);
-        this.isGood(node.right, ans, mx);
+        src1448.isGood(node.left, ans, mx);
+        src1448.isGood(node.right, ans, mx);
     }
 
     static goodNodes(root: TreeNode | null): number {

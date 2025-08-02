@@ -33,8 +33,8 @@ class src104 {
         if (!root) return 0;
 
         return 1 + Math.max(
-            this.maxDepth2(root.left),
-            this.maxDepth2(root.right)
+            src104.maxDepth2(root.left),
+            src104.maxDepth2(root.right)
         );
     }
 

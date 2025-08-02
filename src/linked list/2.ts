@@ -14,7 +14,7 @@ class src2 {
         rem = Math.trunc(sum / 10);
         sum %= 10;
 
-        return new ListNode(sum, this.add(
+        return new ListNode(sum, src2.add(
             (l1) ? l1.next : null,
             (l2) ? l2.next : null,
             rem

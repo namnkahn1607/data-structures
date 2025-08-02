@@ -8,9 +8,9 @@ class src701 {
         if (!root) return new TreeNode(x);
 
         if (x < root.val)
-            root.left = this.insertIntoBST(root.left, x);
+            root.left = src701.insertIntoBST(root.left, x);
         else
-            root.right = this.insertIntoBST(root.right, x);
+            root.right = src701.insertIntoBST(root.right, x);
 
         return root;
     }

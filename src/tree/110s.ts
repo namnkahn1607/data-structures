@@ -7,11 +7,11 @@ class src110 {
     public static balancedNode(node: TreeNode | null): number {
         if (!node) return 0;
 
-        const left = this.balancedNode(node.left);
+        const left = src110.balancedNode(node.left);
 
         if (left === -1) return -1;
 
-        const right = this.balancedNode(node.right);
+        const right = src110.balancedNode(node.right);
 
         if (right === -1) return -1;
 

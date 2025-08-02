@@ -9,7 +9,7 @@ class strty56 {
         if (root.val === target)
             return true;
 
-        return this.treeIncludes(root.left, target) || this.treeIncludes(root.right, target);
+        return strty56.treeIncludes(root.left, target) || strty56.treeIncludes(root.right, target);
     }
 
     public static main(): void {

@@ -26,8 +26,8 @@ class src226 {
         if (!root) return null;
 
         [root.left, root.right] = [root.right, root.left];
-        this.invertTree2(root.left);
-        this.invertTree2(root.right);
+        src226.invertTree2(root.left);
+        src226.invertTree2(root.right);
 
         return root;
     }

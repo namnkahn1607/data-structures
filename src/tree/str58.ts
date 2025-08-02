@@ -11,8 +11,8 @@ class strty58 {
             return root.val;
 
         return root.val + Math.max(
-            this.maxPathSum(root.left),
-            this.maxPathSum(root.right)
+            strty58.maxPathSum(root.left),
+            strty58.maxPathSum(root.right)
         );
     }
 

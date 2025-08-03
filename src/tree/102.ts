@@ -1,8 +1,9 @@
 /* 102. binary tree level order traversal */
-// #: tree + BFS
+// #: tree + BFS/DFS
 import { TreeNode, Trees } from "./binary tree";
 
 class src102 {
+    // 1. BFS
     static levelOrder(root: TreeNode | null): number[][] {
         if (root === null) return [];
 
@@ -30,16 +31,42 @@ class src102 {
         return ans;
     }
 
+    // 2. recursive DFS
+    private static levelTraversal(node: TreeNode | null, ans: number[][], level: number): void {
+        if (!node) return;
+
+        if (level === ans.length)
+            ans.push([]);
+
+        ans[level].push(node.val);
+
+        src102.levelTraversal(node.left, ans, level + 1);
+        src102.levelTraversal(node.right, ans, level + 1);
+    }
+
+    static levelOrder2(root: TreeNode | null): number[][] {
+        const ans: number[][] = [];
+
+        src102.levelTraversal(root, ans, 0);
+
+        return ans;
+    }
+
     public static main(): void {
         // add binary tree
         const root: TreeNode | null = Trees.createBinaryTree(
-            [3,9,20,null,null,15,7]
+            [3, 9, 20, null, null, 15, 7]
         );
 
         // level order traverse the tree
-        let ans: number[][] = src102.levelOrder(root);
+        let ans1: number[][] = src102.levelOrder(root);
 
-        for (const vec of ans)
+        for (const vec of ans1)
+            console.log(vec.join(" "));
+
+        let ans2: number[][] = src102.levelOrder2(root);
+
+        for (const vec of ans2)
             console.log(vec.join(" "));
     }
 }

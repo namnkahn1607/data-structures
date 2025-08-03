@@ -15,7 +15,7 @@ class src100 {
     }
 
     // 2. iterative DFS
-    static isSameTree3(p: TreeNode | null, q: TreeNode | null): boolean {
+    static isSameTree2(p: TreeNode | null, q: TreeNode | null): boolean {
         const pStack: (TreeNode | null)[] = [p];
         const qStack: (TreeNode | null)[] = [q];
 
@@ -48,7 +48,7 @@ class src100 {
         let ans1: boolean = src100.isSameTree(p, q);
         console.log((ans1) ? "true" : "false");
 
-        let ans2: boolean = src100.isSameTree3(p, q);
+        let ans2: boolean = src100.isSameTree2(p, q);
         console.log((ans2) ? "true" : "false");
 
         console.log((compareArray(Trees.convertToArray(p), Trees.convertToArray(q))) ? "true" : "false");

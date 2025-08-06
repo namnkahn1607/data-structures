@@ -1,6 +1,6 @@
 /* 226. invert binary tree */
 // #: tree + BFS + recursion
-import { Trees, TreeNode } from "./binary tree";
+import { Trees, TreeNode } from "../binary tree";
 
 class src226 {
     // 1. iterative BFS

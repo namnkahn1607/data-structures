@@ -1,6 +1,6 @@
 /* 145. binary tree postorder traversal */
 // #: tree + DFS
-import { Trees, postorderTraverse, TreeNode } from "./binary tree";
+import { Trees, postorderTraverse, TreeNode } from "../binary tree";
 
 class src145 {
     // 1. invert tree + reverse output

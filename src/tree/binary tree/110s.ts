@@ -1,6 +1,6 @@
 /* 110. balanced binary tree */
 // #: tree + DFS + recursion
-import { Trees, TreeNode } from "./binary tree";
+import { Trees, TreeNode } from "../binary tree";
 
 class src110 {
     // 1. recursive DFS

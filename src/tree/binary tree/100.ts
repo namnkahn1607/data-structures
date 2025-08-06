@@ -1,7 +1,7 @@
 /* 100. same binary tree */
 // #: tree + DFS + recursion
-import { TreeNode, Trees } from "./binary tree";
-import { compareArray } from "../packages";
+import { TreeNode, Trees } from "../binary tree";
+import { compareArray } from "../../packages";
 
 class src100 {
     // 1. recursive DFS

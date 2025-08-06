@@ -1,6 +1,6 @@
 /* 543. diameter of binary tree */
 // #: tree + DFS + recursion
-import { TreeNode, Trees } from "./binary tree";
+import { TreeNode, Trees } from "../binary tree";
 
 class src543 {
     // 1. recursive DFS

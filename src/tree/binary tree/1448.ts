@@ -1,6 +1,6 @@
 /* 1448. count good nodes in binary tree */
 // #: tree + DFS + recursion
-import { TreeNode, Trees } from "./binary tree";
+import { TreeNode, Trees } from "../binary tree";
 
 class src1448 {
     // 1. recursive DFS

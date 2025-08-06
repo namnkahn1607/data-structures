@@ -1,6 +1,6 @@
 /* 94. binary tree inorder traversal */
 // #: tree + DFS
-import { Trees, TreeNode, inorderTraverse } from "./binary tree";
+import { Trees, TreeNode, inorderTraverse } from "../binary tree";
 
 class src94 {
     // 1. iterative

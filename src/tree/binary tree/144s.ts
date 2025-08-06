@@ -1,6 +1,6 @@
 /* 144. binary tree preorder traversal */
 // #: tree + DFS
-import { Trees, preorderTraverse, TreeNode } from "./binary tree";
+import { Trees, preorderTraverse, TreeNode } from "../binary tree";
 
 class src144 {
     // 1. iterative

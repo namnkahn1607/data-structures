@@ -3,7 +3,6 @@
 import { TreeNode, Trees } from "../binary tree";
 
 class src450 {
-    // 1. recursive DFS
     static deleteNode(root: TreeNode | null, key: number): TreeNode | null {
         if (!root) return null;
 

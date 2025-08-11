@@ -5,17 +5,17 @@ import { compareArray } from "../../packages";
 
 class src100 {
     // 1. recursive DFS
-    static isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
+    isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
         if (!p && !q)
             return true;
         else if (!p || !q || p.val !== q.val)
             return false;
 
-        return src100.isSameTree(p.left, q.left) && src100.isSameTree(p.right, q.right);
+        return this.isSameTree(p.left, q.left) && this.isSameTree(p.right, q.right);
     }
 
     // 2. iterative DFS
-    static isSameTree2(p: TreeNode | null, q: TreeNode | null): boolean {
+    isSameTree2(p: TreeNode | null, q: TreeNode | null): boolean {
         const pStack: (TreeNode | null)[] = [p];
         const qStack: (TreeNode | null)[] = [q];
 
@@ -45,10 +45,10 @@ class src100 {
         const q: TreeNode | null = Trees.createBinaryTree([1, 1, 2]);
 
         // compare 2 binary trees
-        let ans1: boolean = src100.isSameTree(p, q);
+        let ans1: boolean = new src100().isSameTree(p, q);
         console.log((ans1) ? "true" : "false");
 
-        let ans2: boolean = src100.isSameTree2(p, q);
+        let ans2: boolean = new src100().isSameTree2(p, q);
         console.log((ans2) ? "true" : "false");
 
         console.log((compareArray(Trees.convertToArray(p), Trees.convertToArray(q))) ? "true" : "false");

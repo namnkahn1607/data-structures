@@ -4,20 +4,20 @@ import { TreeNode, Trees } from "./binary tree";
 
 class strty58 {
     // 1. recursive DFS
-    static maxPathSum(root: TreeNode | null): number {
+    maxPathSum(root: TreeNode | null): number {
         if (!root) return Number.MIN_SAFE_INTEGER;
 
         if (!root.left && !root.right)
             return root.val;
 
         return root.val + Math.max(
-            strty58.maxPathSum(root.left),
-            strty58.maxPathSum(root.right)
+            this.maxPathSum(root.left),
+            this.maxPathSum(root.right)
         );
     }
 
     // 2. iterative DFS
-    static maxPathSum2(root: TreeNode | null): number | undefined {
+    maxPathSum2(root: TreeNode | null): number | undefined {
         const stack: TreeNode[] = [];
         let [cur, lastVisit]: [TreeNode | null, TreeNode | null] = [root, null];
 
@@ -57,8 +57,10 @@ class strty58 {
         );
 
         // calculate maxima height-path sum
-        let ans1: number = strty58.maxPathSum(root),
-            ans2: number | undefined = strty58.maxPathSum2(root);
+        const solution = new strty58();
+
+        let ans1: number = solution.maxPathSum(root),
+            ans2: number | undefined = solution.maxPathSum2(root);
         console.log(`recursive: ${ans1}, iterative: ${ans2}`);
     }
 }

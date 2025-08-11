@@ -4,19 +4,19 @@ import { TreeNode, Trees } from "../binary tree";
 
 class src701 {
     // 1. recursive
-    static insertIntoBST(root: TreeNode | null, x: number): TreeNode | null {
+    insertIntoBST(root: TreeNode | null, x: number): TreeNode | null {
         if (!root) return new TreeNode(x);
 
         if (x < root.val)
-            root.left = src701.insertIntoBST(root.left, x);
+            root.left = this.insertIntoBST(root.left, x);
         else
-            root.right = src701.insertIntoBST(root.right, x);
+            root.right = this.insertIntoBST(root.right, x);
 
         return root;
     }
 
     // 2. iterative
-    static insertIntoBST2(root: TreeNode | null, x: number): TreeNode | null {
+    insertIntoBST2(root: TreeNode | null, x: number): TreeNode | null {
         let [pre, cur]: [TreeNode | null, TreeNode | null] = [null, root];
 
         while (cur) {
@@ -49,12 +49,12 @@ class src701 {
         const x2: number = 9;
 
         // add x-val node into that BST
-        let ans1: TreeNode | null = src701.insertIntoBST(root, x1);
+        let ans1: TreeNode | null = new src701().insertIntoBST(root, x1);
         console.log(Trees.convertToArray(ans1).map(val => {
             return val === null ? "null" : val
         }).join(" "));
 
-        let ans2: TreeNode | null = src701.insertIntoBST2(root, x2);
+        let ans2: TreeNode | null = new src701().insertIntoBST2(root, x2);
         console.log(Trees.convertToArray(ans2).map(val => {
             return val === null ? "null" : val
         }).join(" "));

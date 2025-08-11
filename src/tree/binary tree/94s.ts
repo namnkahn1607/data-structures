@@ -4,7 +4,7 @@ import { Trees, TreeNode, inorderTraverse } from "../binary tree";
 
 class src94 {
     // 1. iterative
-    static inorderTraversal(root: TreeNode | null): number[] {
+    inorderTraversal(root: TreeNode | null): number[] {
         const ans: number[] = [];
         const stack: TreeNode[] = [];
         let cur: TreeNode | null = root;
@@ -32,7 +32,7 @@ class src94 {
         );
 
         // inorder the binary tree
-        let ans: number[] = src94.inorderTraversal(root);
+        let ans: number[] = new src94().inorderTraversal(root);
         console.log(ans.join(" "));
 
         inorderTraverse(root);

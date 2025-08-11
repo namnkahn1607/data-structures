@@ -4,7 +4,7 @@ import { TreeNode, Trees } from "../binary tree";
 
 class src230 {
     // 1. iterative DFS
-    static kthSmallest(root: TreeNode | null, k: number): number {
+    kthSmallest(root: TreeNode | null, k: number): number {
         const stack: TreeNode[] = [];
         let cur: TreeNode | null = root;
 
@@ -28,10 +28,19 @@ class src230 {
     }
 
     // 2. recursive DFS
-    private static dfs(node: TreeNode | null, ans: number[]): void {
+    kthSmallest2(root: TreeNode | null, k: number): number {
+        const ans: number[] = [0, 0];
+        ans[0] = k;
+
+        this.dfs(root, ans);
+
+        return ans[1];
+    }
+
+    private dfs(node: TreeNode | null, ans: number[]): void {
         if (!node) return;
 
-        src230.dfs(node.left, ans);
+        this.dfs(node.left, ans);
 
         --ans[0];
 
@@ -40,16 +49,7 @@ class src230 {
             return;
         }
 
-        src230.dfs(node.right, ans);
-    }
-
-    static kthSmallest2(root: TreeNode | null, k: number): number {
-        const ans: number[] = [0, 0];
-        ans[0] = k;
-
-        src230.dfs(root, ans);
-
-        return ans[1];
+        this.dfs(node.right, ans);
     }
 
     // 3. morris traversal
@@ -62,8 +62,12 @@ class src230 {
         const k: number = 4;
 
         // search for k-th smallest node val within BST
-        let ans: number = src230.kthSmallest(root, k);
-        console.log(ans);
+        const solution = new src230();
+
+        let ans1: number = solution.kthSmallest(root, k),
+            ans2: number = solution.kthSmallest2(root, k);
+
+        console.log(`iterative: ${ans1}, recursive: ${ans2}`);
     }
 }
 

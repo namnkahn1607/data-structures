@@ -4,19 +4,19 @@ import { levelOrderTraverse, TreeNode, Trees } from "../binary tree";
 
 class src700 {
     // 1. recursive DFS
-    static searchBST(root: TreeNode | null, val: number): TreeNode | null {
+    searchBST(root: TreeNode | null, val: number): TreeNode | null {
         if (!root) return null;
 
         if (val < root.val)
-            return src700.searchBST(root.left, val);
+            return this.searchBST(root.left, val);
         else if (val > root.val)
-            return src700.searchBST(root.right, val);
+            return this.searchBST(root.right, val);
 
         return root;
     }
 
     // 2. iterative DFS
-    static searchBST2(root: TreeNode | null, val: number): TreeNode | null {
+    searchBST2(root: TreeNode | null, val: number): TreeNode | null {
         const stack: (TreeNode | null)[] = [];
         let cur: TreeNode | null = root;
 
@@ -44,8 +44,11 @@ class src700 {
         const val: number = 2;
 
         // search for the val-key within BST
-        let ans: TreeNode | null = src700.searchBST(root, val);
-        levelOrderTraverse(ans);
+        let ans1: TreeNode | null = new src700().searchBST(root, val);
+        levelOrderTraverse(ans1);
+
+        let ans2: TreeNode | null = new src700().searchBST2(root, val);
+        levelOrderTraverse(ans2);
     }
 }
 

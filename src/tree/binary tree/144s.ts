@@ -4,7 +4,7 @@ import { Trees, preorderTraverse, TreeNode } from "../binary tree";
 
 class src144 {
     // 1. iterative
-    static preorderTraversal(root: TreeNode | null): number[] {
+    preorderTraversal(root: TreeNode | null): number[] {
         const ans: number[] = [];
         const stack: (TreeNode | null)[] = [];
         let cur: TreeNode | null = root;
@@ -31,7 +31,7 @@ class src144 {
         );
 
         // preorder the binary tree
-        let ans: number[] = src144.preorderTraversal(root);
+        let ans: number[] = new src144().preorderTraversal(root);
         console.log(ans.join(" "));
 
         preorderTraverse(root);

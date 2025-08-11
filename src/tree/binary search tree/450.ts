@@ -3,14 +3,14 @@
 import { TreeNode, Trees } from "../binary tree";
 
 class src450 {
-    static deleteNode(root: TreeNode | null, key: number): TreeNode | null {
+    deleteNode(root: TreeNode | null, key: number): TreeNode | null {
         if (!root) return null;
 
         if (key < root.val) {
-            root.left = src450.deleteNode(root.left, key);
+            root.left = this.deleteNode(root.left, key);
             return root;
         } else if (key > root.val) {
-            root.right = src450.deleteNode(root.right, key);
+            root.right = this.deleteNode(root.right, key);
             return root;
         }
 
@@ -35,7 +35,7 @@ class src450 {
         const key: number = 3;
 
         // delete the key-val node within BST
-        let ans: TreeNode | null = src450.deleteNode(root, key);
+        let ans: TreeNode | null = new src450().deleteNode(root, key);
 
         console.log(Trees.convertToArray(ans).map(val => {
             return val === null ? "null" : val;

@@ -3,7 +3,7 @@
 import { TreeNode, Trees } from "../binary tree";
 
 class src1161 {
-    static maxLevelSum(root: TreeNode | null): number {
+    maxLevelSum(root: TreeNode | null): number {
         if (!root) return -1;
 
         const queue: TreeNode[] = [root];
@@ -42,7 +42,7 @@ class src1161 {
         );
 
         // search for level with the highest sum
-        let ans: number = src1161.maxLevelSum(root);
+        let ans: number = new src1161().maxLevelSum(root);
         console.log(ans);
     }
 }

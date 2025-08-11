@@ -4,11 +4,11 @@ import { TreeNode, Trees } from "../binary tree";
 
 class src1325 {
     // 1. recursive DFS
-    static removeLeafNodes(root: TreeNode | null, target: number): TreeNode | null {
+    removeLeafNodes(root: TreeNode | null, target: number): TreeNode | null {
         if (!root) return null;
 
-        root.left = src1325.removeLeafNodes(root.left, target);
-        root.right = src1325.removeLeafNodes(root.right, target);
+        root.left = this.removeLeafNodes(root.left, target);
+        root.right = this.removeLeafNodes(root.right, target);
 
         if (!root.left && !root.right && root.val === target)
             return null;
@@ -17,7 +17,7 @@ class src1325 {
     }
 
     // 2. iterative DFS
-    static removeLeafNodes2(root: TreeNode | null, target: number): TreeNode | null {
+    removeLeafNodes2(root: TreeNode | null, target: number): TreeNode | null {
         const stack: TreeNode[] = [];
         let [cur, lastVisit]: [TreeNode | null, TreeNode | null] = [root, null];
 
@@ -68,13 +68,13 @@ class src1325 {
         const target2: number = 2;
 
         // remove all leaf nodes with targeted value
-        let ans1: TreeNode | null = src1325.removeLeafNodes(root1, target1);
+        let ans1: TreeNode | null = new src1325().removeLeafNodes(root1, target1);
 
         console.log(Trees.convertToArray(ans1).map(val => {
             return val === null ? "null" : val;
         }).join(" "));
 
-        let ans2: TreeNode | null = src1325.removeLeafNodes2(root2, target2);
+        let ans2: TreeNode | null = new src1325().removeLeafNodes2(root2, target2);
 
         console.log(Trees.convertToArray(ans2).map(val => {
             return val === null ? "null" : val;

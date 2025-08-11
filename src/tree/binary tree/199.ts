@@ -4,7 +4,7 @@ import { TreeNode, Trees } from "../binary tree";
 
 class src199 {
     // 1. BFS
-    static rightSideView(root: TreeNode | null): number[] {
+    rightSideView(root: TreeNode | null): number[] {
         if (!root) return [];
 
         const ans: number[] = [];
@@ -27,23 +27,23 @@ class src199 {
     }
 
     // 2. recursive DFS
-    private static treeTraversal(node: TreeNode | null, ans: number[], depth: number) {
+    rightSideView2(root: TreeNode | null): number[] {
+        const ans: number[] = [];
+
+        this.treeTraversal(root, ans, 0);
+
+        return ans;
+    }
+
+    private treeTraversal(node: TreeNode | null, ans: number[], depth: number) {
         if (!node)
             return;
 
         if (depth === ans.length)
             ans.push(node.val);
 
-        src199.treeTraversal(node.right, ans, depth + 1);
-        src199.treeTraversal(node.left, ans, depth + 1);
-    }
-
-    static rightSideView2(root: TreeNode | null): number[] {
-        const ans: number[] = [];
-
-        src199.treeTraversal(root, ans, 0);
-
-        return ans;
+        this.treeTraversal(node.right, ans, depth + 1);
+        this.treeTraversal(node.left, ans, depth + 1);
     }
 
     public static main(): void {
@@ -53,10 +53,10 @@ class src199 {
         );
 
         // visible node from right side of the tree
-        let ans1: number[] = src199.rightSideView(root);
+        let ans1: number[] = new src199().rightSideView(root);
         console.log(ans1.join(" "));
 
-        let ans2: number[] = src199.rightSideView2(root);
+        let ans2: number[] = new src199().rightSideView2(root);
         console.log(ans2.join(" "));
     }
 }

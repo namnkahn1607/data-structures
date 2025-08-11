@@ -3,13 +3,13 @@
 import { TreeNode, Trees } from "./binary tree";
 
 class strty56 {
-    static treeIncludes(root: TreeNode | null, target: number): boolean {
+    treeIncludes(root: TreeNode | null, target: number): boolean {
         if (!root) return false;
 
         if (root.val === target)
             return true;
 
-        return strty56.treeIncludes(root.left, target) || strty56.treeIncludes(root.right, target);
+        return this.treeIncludes(root.left, target) || this.treeIncludes(root.right, target);
     }
 
     public static main(): void {
@@ -24,7 +24,7 @@ class strty56 {
         const target: number = key.charCodeAt(0) - base;
 
         // search for the target within the tree
-        let ans: boolean = strty56.treeIncludes(root, target);
+        let ans: boolean = new strty56().treeIncludes(root, target);
         console.log(ans);
     }
 }

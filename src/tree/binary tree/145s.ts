@@ -4,7 +4,7 @@ import { Trees, postorderTraverse, TreeNode } from "../binary tree";
 
 class src145 {
     // 1. invert tree + reverse output
-    static postorderTraversal(root: TreeNode | null): number[] {
+    postorderTraversal(root: TreeNode | null): number[] {
         const ans: number[] = [];
         const stack: (TreeNode | null)[] = [];
         let cur: TreeNode | null = root;
@@ -23,7 +23,7 @@ class src145 {
     }
 
     // 2. iterative DFS - I
-    static postorderTraversal2(root: TreeNode | null): number[] {
+    postorderTraversal2(root: TreeNode | null): number[] {
         const ans: number[] = [];
         const stack: TreeNode[] = [];
         let [cur, lastVisit]: [TreeNode | null, TreeNode | null] = [root, null];
@@ -48,7 +48,7 @@ class src145 {
     }
 
     // 3. iterative DFS - II
-    static postorderTraversal3(root: TreeNode | null): number[] {
+    postorderTraversal3(root: TreeNode | null): number[] {
         const stack: (TreeNode | null)[] = [root];
         const visit: boolean[] = [false];
         const ans: number[] = [];
@@ -85,13 +85,15 @@ class src145 {
         );
 
         // postorder the binary tree
-        let ans1 = src145.postorderTraversal(root);
+        const solution = new src145();
+
+        let ans1 = solution.postorderTraversal(root);
         console.log(ans1.join(" "));
 
-        let ans2 = src145.postorderTraversal2(root);
+        let ans2 = solution.postorderTraversal2(root);
         console.log(ans2.join(" "));
 
-        let ans3 = src145.postorderTraversal3(root);
+        let ans3 = solution.postorderTraversal3(root);
         console.log(ans3.join(" "));
 
         postorderTraverse(root);

@@ -4,7 +4,7 @@ import { levelOrderTraverse, TreeNode, Trees } from "../binary tree";
 
 class src102 {
     // 1. BFS
-    static levelOrder(root: TreeNode | null): number[][] {
+    levelOrder(root: TreeNode | null): number[][] {
         if (root === null) return [];
 
         const ans: number[][] = [];
@@ -32,7 +32,15 @@ class src102 {
     }
 
     // 2. recursive DFS
-    private static levelTraversal(node: TreeNode | null, ans: number[][], level: number): void {
+    levelOrder2(root: TreeNode | null): number[][] {
+        const ans: number[][] = [];
+
+        this.levelTraversal(root, ans, 0);
+
+        return ans;
+    }
+
+    private levelTraversal(node: TreeNode | null, ans: number[][], level: number): void {
         if (!node) return;
 
         if (level === ans.length)
@@ -40,17 +48,10 @@ class src102 {
 
         ans[level].push(node.val);
 
-        src102.levelTraversal(node.left, ans, level + 1);
-        src102.levelTraversal(node.right, ans, level + 1);
+        this.levelTraversal(node.left, ans, level + 1);
+        this.levelTraversal(node.right, ans, level + 1);
     }
 
-    static levelOrder2(root: TreeNode | null): number[][] {
-        const ans: number[][] = [];
-
-        src102.levelTraversal(root, ans, 0);
-
-        return ans;
-    }
 
     public static main(): void {
         // add binary tree
@@ -59,12 +60,12 @@ class src102 {
         );
 
         // level order traverse the tree
-        let ans1: number[][] = src102.levelOrder(root);
+        let ans1: number[][] = new src102().levelOrder(root);
 
         for (const vec of ans1)
             console.log(vec.join(" "));
 
-        let ans2: number[][] = src102.levelOrder2(root);
+        let ans2: number[][] = new src102().levelOrder2(root);
 
         for (const vec of ans2)
             console.log(vec.join(" "));

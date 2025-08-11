@@ -4,18 +4,7 @@ import { TreeNode, Trees } from "../binary tree";
 
 class src543 {
     // 1. recursive DFS
-    private static nodeMaxHeight(node: TreeNode | null, diameter: { val: number }): number {
-        if (!node) return 0;
-
-        const left = src543.nodeMaxHeight(node.left, diameter);
-        const right = src543.nodeMaxHeight(node.right, diameter);
-
-        diameter.val = Math.max(diameter.val, left + right);
-
-        return 1 + Math.max(left, right);
-    }
-
-    static diameterOfBinaryTree(root: TreeNode | null): number {
+    diameterOfBinaryTree(root: TreeNode | null): number {
         let diameter = { val: 0 };
 
         this.nodeMaxHeight(root, diameter);
@@ -23,8 +12,19 @@ class src543 {
         return diameter.val;
     }
 
+    private nodeMaxHeight(node: TreeNode | null, diameter: { val: number }): number {
+        if (!node) return 0;
+
+        const left = this.nodeMaxHeight(node.left, diameter);
+        const right = this.nodeMaxHeight(node.right, diameter);
+
+        diameter.val = Math.max(diameter.val, left + right);
+
+        return 1 + Math.max(left, right);
+    }
+
     // 2. iterative DFS
-    static diameterOfBinaryTree2(root: TreeNode | null): number {
+    diameterOfBinaryTree2(root: TreeNode | null): number {
         const stack: TreeNode[] = [];
         let [cur, lastVisit]: [TreeNode | null, TreeNode | null] = [root, null];
 
@@ -62,8 +62,10 @@ class src543 {
         );
 
         // calculate diameter of binary tree
-        let ans1 = src543.diameterOfBinaryTree(root),
-            ans2 = src543.diameterOfBinaryTree2(root);
+        const solution = new src543();
+
+        let ans1 = solution.diameterOfBinaryTree(root),
+            ans2 = solution.diameterOfBinaryTree2(root);
 
         console.log(`rDFS: ${ans1}, iDFS: ${ans2}`)
     }

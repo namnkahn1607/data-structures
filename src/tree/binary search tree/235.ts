@@ -5,19 +5,19 @@ import { BST } from "../bs tree";
 
 class src235 {
     // 1. recursion
-    static lowestCommonAncestor(root: TreeNode | null, p: TreeNode | null, q: TreeNode | null): TreeNode | null {
+    lowestCommonAncestor(root: TreeNode | null, p: TreeNode | null, q: TreeNode | null): TreeNode | null {
         if (!root || !p || !q) return null;
 
         if (root.val < Math.min(p.val, q.val))
-            return src235.lowestCommonAncestor(root.right, p, q);
+            return this.lowestCommonAncestor(root.right, p, q);
         else if (root.val > Math.max(p.val, q.val))
-            return src235.lowestCommonAncestor(root.left, p, q);
+            return this.lowestCommonAncestor(root.left, p, q);
 
         return root;
     }
 
     // 2. iterative
-    static lowestCommonAncestor2(root: TreeNode | null, p: TreeNode | null, q: TreeNode | null): TreeNode | null {
+    lowestCommonAncestor2(root: TreeNode | null, p: TreeNode | null, q: TreeNode | null): TreeNode | null {
         if (!root || !p || !q) return null;
 
         const [a, b] = [Math.min(p.val, q.val), Math.max(p.val, q.val)];
@@ -45,10 +45,10 @@ class src235 {
         const q: TreeNode | null = BST.search(root, 8);
 
         // search for LCA of p and q in BST
-        let ans1: TreeNode | null = src235.lowestCommonAncestor(root, p, q);
+        let ans1: TreeNode | null = new src235().lowestCommonAncestor(root, p, q);
         console.log(ans1, '\n');
 
-        let ans2: TreeNode | null = src235.lowestCommonAncestor2(root, p, q);
+        let ans2: TreeNode | null = new src235().lowestCommonAncestor2(root, p, q);
         console.log(ans2, '\n');
     }
 }

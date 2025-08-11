@@ -4,7 +4,7 @@ import { TreeNode, Trees } from "../binary tree";
 
 class src1448 {
     // 1. recursive DFS
-    private static isGood(node: TreeNode | null, ans: number[], mx: number): void {
+    private isGood(node: TreeNode | null, ans: number[], mx: number): void {
         if (!node) return;
 
         if (node.val >= mx) {
@@ -12,11 +12,11 @@ class src1448 {
             mx = Math.max(mx, node.val);
         }
 
-        src1448.isGood(node.left, ans, mx);
-        src1448.isGood(node.right, ans, mx);
+        this.isGood(node.left, ans, mx);
+        this.isGood(node.right, ans, mx);
     }
 
-    static goodNodes(root: TreeNode | null): number {
+    goodNodes(root: TreeNode | null): number {
         if (!root) return 0;
 
         const ans: number[] = [0];
@@ -27,7 +27,7 @@ class src1448 {
     }
 
     // 2. iterative DFS
-    static goodNodes2(root: TreeNode | null): number {
+    goodNodes2(root: TreeNode | null): number {
         if (!root) return 0;
 
         const stack: [TreeNode | null, number][] = [];
@@ -58,8 +58,8 @@ class src1448 {
         );
 
         // calculate number of good nodes within tree
-        let ans1: number = src1448.goodNodes(root),
-            ans2: number = src1448.goodNodes2(root);
+        let ans1: number = new src1448().goodNodes(root),
+            ans2: number = new src1448().goodNodes2(root);
         console.log(`recursive: ${ans1}, iterative: ${ans2}`);
     }
 }

@@ -4,7 +4,7 @@ import { TreeNode, Trees } from "../binary tree";
 
 class src104 {
     // 1. BFS
-    static maxDepth(root: TreeNode | null): number {
+    maxDepth(root: TreeNode | null): number {
         if (!root) return 0;
 
         const queue: TreeNode[] = [root];
@@ -29,17 +29,17 @@ class src104 {
     }
 
     // 2. divide and conquer
-    static maxDepth2(root: TreeNode | null): number {
+    maxDepth2(root: TreeNode | null): number {
         if (!root) return 0;
 
         return 1 + Math.max(
-            src104.maxDepth2(root.left),
-            src104.maxDepth2(root.right)
+            this.maxDepth2(root.left),
+            this.maxDepth2(root.right)
         );
     }
 
     // 3. iterative DFS
-    static maxDepth3(root: TreeNode | null): number {
+    maxDepth3(root: TreeNode | null): number {
         const stack: [TreeNode | null, number][] = [[root, 0]];
         let depth = 0;
 
@@ -64,9 +64,11 @@ class src104 {
         );
 
         // calculate binary tree's max depth
-        let ans1: number = src104.maxDepth(root),
-            ans2: number = src104.maxDepth2(root),
-            ans3: number = src104.maxDepth3(root);
+        const solution = new src104();
+
+        let ans1: number = solution.maxDepth(root),
+            ans2: number = solution.maxDepth2(root),
+            ans3: number = solution.maxDepth3(root);
         console.log(`${ans1} ${ans2} ${ans3}`);
     }
 }

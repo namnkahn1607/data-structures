@@ -4,7 +4,7 @@ import { Trees, TreeNode } from "../binary tree";
 
 class src226 {
     // 1. iterative BFS
-    static invertTree(root: TreeNode | null): TreeNode | null {
+    invertTree(root: TreeNode | null): TreeNode | null {
         const queue: (TreeNode | null)[] = [root];
         let i = 0;
 
@@ -22,18 +22,18 @@ class src226 {
     }
 
     // 2. recursive DFS
-    static invertTree2(root: TreeNode | null): TreeNode | null {
+    invertTree2(root: TreeNode | null): TreeNode | null {
         if (!root) return null;
 
         [root.left, root.right] = [root.right, root.left];
-        src226.invertTree2(root.left);
-        src226.invertTree2(root.right);
+        this.invertTree2(root.left);
+        this.invertTree2(root.right);
 
         return root;
     }
 
     // 3. iterative DFS
-    static invertTree3(root: TreeNode | null): TreeNode | null {
+    invertTree3(root: TreeNode | null): TreeNode | null {
         const stack: (TreeNode | null)[] = [];
         let cur: TreeNode | null = root;
 
@@ -57,17 +57,19 @@ class src226 {
         );
 
         // invert the binary tree
-        let ans1: TreeNode | null = src226.invertTree(root);
+        const solution = new src226();
+
+        let ans1: TreeNode | null = solution.invertTree(root);
         console.log(Trees.convertToArray(ans1).map(val => {
             return val === null ? "null" : val
         }).join(" "));
 
-        let ans2: TreeNode | null = src226.invertTree2(root);
+        let ans2: TreeNode | null = solution.invertTree2(root);
         console.log(Trees.convertToArray(ans2).map(val => {
             return val === null ? "null" : val
         }).join(" "));
 
-        let ans3: TreeNode | null = src226.invertTree3(root);
+        let ans3: TreeNode | null = solution.invertTree3(root);
         console.log(Trees.convertToArray(ans3).map(val => {
             return val === null ? "null" : val
         }).join(" "));

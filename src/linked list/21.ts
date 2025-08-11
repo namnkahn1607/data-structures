@@ -4,21 +4,23 @@
 import { createSLList, ListNode, printSLList } from "./linked list";
 
 class src21 {
-    static mergeTwoLists(l1: ListNode | null, l2: ListNode | null): ListNode | null {
+    // 1. recursion
+    mergeTwoLists(l1: ListNode | null, l2: ListNode | null): ListNode | null {
         if (!l1) return l2;
 
         if (!l2) return l1;
 
         if (l1.val <= l2.val) {
-            l1.next = src21.mergeTwoLists(l1.next, l2);
+            l1.next = this.mergeTwoLists(l1.next, l2);
             return l1;
         } else {
-            l2.next = src21.mergeTwoLists(l1, l2.next);
+            l2.next = this.mergeTwoLists(l1, l2.next);
             return l2;
         }
     }
 
-    static mergeTwoLists2(l1: ListNode | null, l2: ListNode | null): ListNode | null {
+    // 2. iteration
+    mergeTwoLists2(l1: ListNode | null, l2: ListNode | null): ListNode | null {
         let dummy: ListNode = new ListNode();
         let cur: ListNode = dummy;
 
@@ -46,10 +48,10 @@ class src21 {
         const l4: ListNode | null = createSLList([2, 4, 6]);
 
         // merge 2 lists into one
-        let ans1 = src21.mergeTwoLists(l1, l2);
+        let ans1 = new src21().mergeTwoLists(l1, l2);
         printSLList(ans1);
 
-        let ans2 = src21.mergeTwoLists2(l3, l4);
+        let ans2 = new src21().mergeTwoLists2(l3, l4);
         printSLList(ans2);
     }
 }

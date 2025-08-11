@@ -4,14 +4,18 @@ import { Trees, TreeNode } from "../binary tree";
 
 class src110 {
     // 1. recursive DFS
-    public static balancedNode(node: TreeNode | null): number {
+    isBalanced(root: TreeNode | null): boolean {
+        return this.balancedNode(root) !== -1;
+    }
+
+    private balancedNode(node: TreeNode | null): number {
         if (!node) return 0;
 
-        const left = src110.balancedNode(node.left);
+        const left = this.balancedNode(node.left);
 
         if (left === -1) return -1;
 
-        const right = src110.balancedNode(node.right);
+        const right = this.balancedNode(node.right);
 
         if (right === -1) return -1;
 
@@ -21,12 +25,8 @@ class src110 {
         return 1 + Math.max(left, right);
     }
 
-    static isBalanced(root: TreeNode | null): boolean {
-        return this.balancedNode(root) !== -1;
-    }
-
     // 2. iterative DFS
-    static isBalanced2(root: TreeNode | null): boolean {
+    isBalanced2(root: TreeNode | null): boolean {
         const stack: TreeNode[] = [];
         let [cur, lastVisit]: [TreeNode | null, TreeNode | null] = [root, null];
 
@@ -65,8 +65,10 @@ class src110 {
         );
 
         // check if a balanced tree
-        let ans1: boolean = src110.isBalanced(root),
-            ans2: boolean = src110.isBalanced2(root);
+        const solution = new src110();
+
+        let ans1: boolean = solution.isBalanced(root),
+            ans2: boolean = solution.isBalanced2(root);
 
         console.log((ans1) ? "true" : "false", (ans2) ? "true" : "false");
     }

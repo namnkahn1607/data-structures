@@ -1,9 +1,9 @@
 /* 19. remove node from end of list */
-// #: llist + recursion
+// #: llist
 import { createSLList, ListNode, printSLList } from "./linked list";
 
 class src19 {
-    static removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
+    removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
         let end: ListNode | null = head;
 
         for (let i = 0; i < n; ++i)
@@ -32,7 +32,7 @@ class src19 {
         const n: number = 2;
 
         // delete the n-th node from end of list
-        let ans: ListNode | null = src19.removeNthFromEnd(head, n);
+        let ans: ListNode | null = new src19().removeNthFromEnd(head, n);
         printSLList(ans);
     }
 }

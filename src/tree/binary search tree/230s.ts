@@ -1,6 +1,6 @@
 /* 230. k-th smallest integer in a BST */
 // #: bst + dfs + recursion
-import { TreeNode, Trees } from "../binary tree";
+import { TreeNode, BinaryTree } from "../tree";
 
 class src230 {
     // 1. iterative DFS
@@ -56,7 +56,7 @@ class src230 {
 
     public static main(): void {
         // add binary search tree
-        const root: TreeNode | null = Trees.createBinaryTree(
+        const root: TreeNode | null = BinaryTree.createBinaryTree(
             [4, 3, 5, 2, null]
         );
         const k: number = 4;

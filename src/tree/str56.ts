@@ -1,6 +1,6 @@
 /* structy-56: tree includes */
 // #: tree + recursion
-import { TreeNode, Trees } from "./binary tree";
+import { TreeNode, BinaryTree } from "./tree";
 
 class strty56 {
     treeIncludes(root: TreeNode | null, target: number): boolean {
@@ -15,7 +15,7 @@ class strty56 {
     public static main(): void {
         // add binary tree & target
         const base: number = 'a'.charCodeAt(0);
-        const root: TreeNode | null = Trees.createBinaryTree(
+        const root: TreeNode | null = BinaryTree.createBinaryTree(
             ['a', 'b', 'c', 'd', 'e'].map(val => {
                 return val.charCodeAt(0) - base
             })

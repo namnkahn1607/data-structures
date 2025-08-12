@@ -1,6 +1,6 @@
 /* 145. binary tree postorder traversal */
 // #: tree + DFS
-import { Trees, postorderTraverse, TreeNode } from "../binary tree";
+import { BinaryTree, TreeNode } from "../tree";
 
 class src145 {
     // 1. invert tree + reverse output
@@ -80,7 +80,7 @@ class src145 {
 
     public static main(): void {
         // add binary tree
-        const root: TreeNode | null = Trees.createBinaryTree(
+        const root: TreeNode | null = BinaryTree.createBinaryTree(
             [1, 2, 3, 4, 5, 6, 7, null, null, 8, 9, null, null, null, 10]
         );
 
@@ -96,7 +96,7 @@ class src145 {
         let ans3 = solution.postorderTraversal3(root);
         console.log(ans3.join(" "));
 
-        postorderTraverse(root);
+        console.log(BinaryTree.postorderTraverse(root).join(" "));
     }
 }
 

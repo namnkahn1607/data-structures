@@ -1,6 +1,6 @@
 /* structy-58: max root to leaf path sum */
 // #: tree + recursion
-import { TreeNode, Trees } from "./binary tree";
+import { TreeNode, BinaryTree } from "./tree";
 
 class strty58 {
     // 1. recursive DFS
@@ -52,7 +52,7 @@ class strty58 {
 
     public static main(): void {
         // add binary tree
-        const root: TreeNode | null = Trees.createBinaryTree(
+        const root: TreeNode | null = BinaryTree.createBinaryTree(
             [5, 11, 54, 20, 15, null, null, null, null, 1, 3]
         );
 

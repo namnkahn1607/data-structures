@@ -1,6 +1,6 @@
 /* 1161. maximum level sum of a binary tree */
 // #: tree + BFS
-import { TreeNode, Trees } from "../binary tree";
+import { TreeNode, BinaryTree } from "../tree";
 
 class src1161 {
     maxLevelSum(root: TreeNode | null): number {
@@ -37,7 +37,7 @@ class src1161 {
 
     public static main(): void {
         // add binary tree
-        const root: TreeNode | null = Trees.createBinaryTree(
+        const root: TreeNode | null = BinaryTree.createBinaryTree(
             [989, null, 10250, 98693, -89388, null, null, null, -32127]
         );
 

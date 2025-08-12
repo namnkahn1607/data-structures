@@ -1,6 +1,6 @@
 /* 94. binary tree inorder traversal */
 // #: tree + DFS
-import { Trees, TreeNode, inorderTraverse } from "../binary tree";
+import { BinaryTree, TreeNode } from "../tree";
 
 class src94 {
     // 1. iterative
@@ -27,7 +27,7 @@ class src94 {
 
     public static main(): void {
         // add binary tree
-        const root: TreeNode | null = Trees.createBinaryTree(
+        const root: TreeNode | null = BinaryTree.createBinaryTree(
             [1, 2, 3, 4, 5, 6, 7, null, null, 8, 9, null, null, null, 10]
         );
 
@@ -35,7 +35,7 @@ class src94 {
         let ans: number[] = new src94().inorderTraversal(root);
         console.log(ans.join(" "));
 
-        inorderTraverse(root);
+        console.log(BinaryTree.inorderTraverse(root).join(" "));
     }
 }
 

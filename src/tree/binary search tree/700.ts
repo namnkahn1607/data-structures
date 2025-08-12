@@ -1,6 +1,6 @@
 /* 700. search in a binary search tree */
 // #: bst + DFS + recursion
-import { levelOrderTraverse, TreeNode, Trees } from "../binary tree";
+import { TreeNode, BinaryTree } from "../tree";
 
 class src700 {
     // 1. recursive DFS
@@ -38,17 +38,17 @@ class src700 {
 
     public static main(): void {
         // add binary search tree
-        const root: TreeNode | null = Trees.createBinaryTree(
+        const root: TreeNode | null = BinaryTree.createBinaryTree(
             [4, 2, 7, 1, 3]
         );
         const val: number = 2;
 
         // search for the val-key within BST
         let ans1: TreeNode | null = new src700().searchBST(root, val);
-        levelOrderTraverse(ans1);
+        console.log(BinaryTree.levelOrderTraverse(ans1).join(" "));
 
         let ans2: TreeNode | null = new src700().searchBST2(root, val);
-        levelOrderTraverse(ans2);
+        console.log(BinaryTree.levelOrderTraverse(ans2).join(" "));
     }
 }
 

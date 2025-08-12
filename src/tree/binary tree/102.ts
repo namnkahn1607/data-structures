@@ -1,6 +1,6 @@
 /* 102. binary tree level order traversal */
 // #: tree + BFS/DFS
-import { levelOrderTraverse, TreeNode, Trees } from "../binary tree";
+import { TreeNode, BinaryTree } from "../tree";
 
 class src102 {
     // 1. BFS
@@ -55,7 +55,7 @@ class src102 {
 
     public static main(): void {
         // add binary tree
-        const root: TreeNode | null = Trees.createBinaryTree(
+        const root: TreeNode | null = BinaryTree.createBinaryTree(
             [3, 9, 20, null, null, 15, 7]
         );
 
@@ -70,7 +70,7 @@ class src102 {
         for (const vec of ans2)
             console.log(vec.join(" "));
 
-        levelOrderTraverse(root);
+        console.log(BinaryTree.levelOrderTraverse(root).join(" "));
     }
 }
 

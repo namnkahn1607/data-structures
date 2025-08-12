@@ -1,6 +1,6 @@
 /* 1448. count good nodes in binary tree */
 // #: tree + DFS + recursion
-import { TreeNode, Trees } from "../binary tree";
+import { TreeNode, BinaryTree } from "../tree";
 
 class src1448 {
     // 1. recursive DFS
@@ -53,7 +53,7 @@ class src1448 {
 
     public static main(): void {
         // create binary tree
-        const root: TreeNode | null = Trees.createBinaryTree(
+        const root: TreeNode | null = BinaryTree.createBinaryTree(
             [2,4,4,4,null,1,3,null,null,5,null,null,null,null,5,4,4]
         );
 

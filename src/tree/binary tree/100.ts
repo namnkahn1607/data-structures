@@ -1,6 +1,6 @@
 /* 100. same binary tree */
 // #: tree + DFS + recursion
-import { TreeNode, Trees } from "../binary tree";
+import { TreeNode, BinaryTree } from "../tree";
 import { compareArray } from "../../packages";
 
 class src100 {
@@ -41,8 +41,8 @@ class src100 {
 
     public static main(): void {
         // add binary tree
-        const p: TreeNode | null = Trees.createBinaryTree([1, 2, 1]);
-        const q: TreeNode | null = Trees.createBinaryTree([1, 1, 2]);
+        const p: TreeNode | null = BinaryTree.createBinaryTree([1, 2, 1]);
+        const q: TreeNode | null = BinaryTree.createBinaryTree([1, 1, 2]);
 
         // compare 2 binary trees
         let ans1: boolean = new src100().isSameTree(p, q);
@@ -51,7 +51,7 @@ class src100 {
         let ans2: boolean = new src100().isSameTree2(p, q);
         console.log((ans2) ? "true" : "false");
 
-        console.log((compareArray(Trees.convertToArray(p), Trees.convertToArray(q))) ? "true" : "false");
+        console.log((compareArray(BinaryTree.convertToArray(p), BinaryTree.convertToArray(q))) ? "true" : "false");
     }
 }
 

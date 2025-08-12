@@ -1,6 +1,6 @@
 /* 110. balanced binary tree */
 // #: tree + DFS + recursion
-import { Trees, TreeNode } from "../binary tree";
+import { BinaryTree, TreeNode } from "../tree";
 
 class src110 {
     // 1. recursive DFS
@@ -60,7 +60,7 @@ class src110 {
 
     public static main(): void {
         // add binary tree
-        const root: TreeNode | null = Trees.createBinaryTree(
+        const root: TreeNode | null = BinaryTree.createBinaryTree(
             [3, 9, 20, null, null, 15, 7]
         );
 

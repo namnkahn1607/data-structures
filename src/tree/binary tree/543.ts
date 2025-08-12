@@ -1,6 +1,6 @@
 /* 543. diameter of binary tree */
 // #: tree + DFS + recursion
-import { TreeNode, Trees } from "../binary tree";
+import { TreeNode, BinaryTree } from "../tree";
 
 class src543 {
     // 1. recursive DFS
@@ -57,7 +57,7 @@ class src543 {
 
     public static main(): void {
         // add binary tree
-        const root: TreeNode | null = Trees.createBinaryTree(
+        const root: TreeNode | null = BinaryTree.createBinaryTree(
             [2, null, 4]
         );
 

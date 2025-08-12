@@ -1,6 +1,6 @@
 /* 701. insert into a binary search tree */
 // #: bst + recursion
-import { TreeNode, Trees } from "../binary tree";
+import { TreeNode, BinaryTree } from "../tree";
 
 class src701 {
     // 1. recursive
@@ -42,7 +42,7 @@ class src701 {
 
     public static main(): void {
         // add BST & insert value
-        const root: TreeNode | null = Trees.createBinaryTree(
+        const root: TreeNode | null = BinaryTree.createBinaryTree(
             [5,3,6,null,4,null,10,null,null,7]
         );
         const x1: number = 2;
@@ -50,12 +50,12 @@ class src701 {
 
         // add x-val node into that BST
         let ans1: TreeNode | null = new src701().insertIntoBST(root, x1);
-        console.log(Trees.convertToArray(ans1).map(val => {
+        console.log(BinaryTree.convertToArray(ans1).map(val => {
             return val === null ? "null" : val
         }).join(" "));
 
         let ans2: TreeNode | null = new src701().insertIntoBST2(root, x2);
-        console.log(Trees.convertToArray(ans2).map(val => {
+        console.log(BinaryTree.convertToArray(ans2).map(val => {
             return val === null ? "null" : val
         }).join(" "));
     }

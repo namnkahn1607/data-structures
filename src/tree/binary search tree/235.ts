@@ -1,6 +1,6 @@
 /* 235. lowest common ancestor of a BST */
 // #: bst + DFS + recursion
-import { TreeNode, Trees } from "../binary tree";
+import { TreeNode, BinaryTree } from "../tree";
 import { BST } from "../bs tree";
 
 class src235 {
@@ -37,7 +37,7 @@ class src235 {
 
     public static main(): void {
         // add binary search tree
-        const root: TreeNode | null = Trees.createBinaryTree(
+        const root: TreeNode | null = BinaryTree.createBinaryTree(
             [6, 2, 8, 0, 4, 7, 9, null, null, 3, 5]
         );
 

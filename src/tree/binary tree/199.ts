@@ -1,6 +1,6 @@
 /* 199. binary tree right side view */
 // #: tree + BFS/DFS + recursion
-import { TreeNode, Trees } from "../binary tree";
+import { TreeNode, BinaryTree } from "../tree";
 
 class src199 {
     // 1. BFS
@@ -48,7 +48,7 @@ class src199 {
 
     public static main(): void {
         // add binary tree
-        const root: TreeNode | null = Trees.createBinaryTree(
+        const root: TreeNode | null = BinaryTree.createBinaryTree(
             [1, 2, 3, 4, 5, 6, 7, null, 8]
         );
 

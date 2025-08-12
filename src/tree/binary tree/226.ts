@@ -1,6 +1,6 @@
 /* 226. invert binary tree */
 // #: tree + BFS + recursion
-import { Trees, TreeNode } from "../binary tree";
+import { BinaryTree, TreeNode } from "../tree";
 
 class src226 {
     // 1. iterative BFS
@@ -52,7 +52,7 @@ class src226 {
 
     public static main(): void {
         // add binary tree
-        const root: TreeNode | null = Trees.createBinaryTree(
+        const root: TreeNode | null = BinaryTree.createBinaryTree(
             [1, 2, 3, 4, 5, 6, 7]
         );
 
@@ -60,17 +60,17 @@ class src226 {
         const solution = new src226();
 
         let ans1: TreeNode | null = solution.invertTree(root);
-        console.log(Trees.convertToArray(ans1).map(val => {
+        console.log(BinaryTree.convertToArray(ans1).map(val => {
             return val === null ? "null" : val
         }).join(" "));
 
         let ans2: TreeNode | null = solution.invertTree2(root);
-        console.log(Trees.convertToArray(ans2).map(val => {
+        console.log(BinaryTree.convertToArray(ans2).map(val => {
             return val === null ? "null" : val
         }).join(" "));
 
         let ans3: TreeNode | null = solution.invertTree3(root);
-        console.log(Trees.convertToArray(ans3).map(val => {
+        console.log(BinaryTree.convertToArray(ans3).map(val => {
             return val === null ? "null" : val
         }).join(" "));
     }

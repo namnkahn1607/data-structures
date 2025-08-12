@@ -1,6 +1,6 @@
 /* 1325. delete leaves with a given value */
 // #: tree + DFS + recursion
-import { TreeNode, Trees } from "../binary tree";
+import { TreeNode, BinaryTree } from "../tree";
 
 class src1325 {
     // 1. recursive DFS
@@ -57,12 +57,12 @@ class src1325 {
 
     public static main(): void {
         // add binary tree
-        const root1: TreeNode | null = Trees.createBinaryTree(
+        const root1: TreeNode | null = BinaryTree.createBinaryTree(
             [1, 2, 3, null, 2, 2, 5]
         );
         const target1: number = 2;
 
-        const root2: TreeNode | null = Trees.createBinaryTree(
+        const root2: TreeNode | null = BinaryTree.createBinaryTree(
             [1, 2, 3, 5, 2, 2, 5]
         );
         const target2: number = 2;
@@ -70,13 +70,13 @@ class src1325 {
         // remove all leaf nodes with targeted value
         let ans1: TreeNode | null = new src1325().removeLeafNodes(root1, target1);
 
-        console.log(Trees.convertToArray(ans1).map(val => {
+        console.log(BinaryTree.convertToArray(ans1).map(val => {
             return val === null ? "null" : val;
         }).join(" "));
 
         let ans2: TreeNode | null = new src1325().removeLeafNodes2(root2, target2);
 
-        console.log(Trees.convertToArray(ans2).map(val => {
+        console.log(BinaryTree.convertToArray(ans2).map(val => {
             return val === null ? "null" : val;
         }).join(" "));
     }

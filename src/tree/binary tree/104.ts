@@ -1,6 +1,6 @@
 /* 104. maximum depth of binary tree */
 // #: tree + BFS/DFS + divide n conquer
-import { TreeNode, Trees } from "../binary tree";
+import { TreeNode, BinaryTree } from "../tree";
 
 class src104 {
     // 1. BFS
@@ -59,7 +59,7 @@ class src104 {
 
     public static main(): void {
         // add binary tree
-        const root: TreeNode | null = Trees.createBinaryTree(
+        const root: TreeNode | null = BinaryTree.createBinaryTree(
             [1, 2, 3, null, null, 4]
         );
 

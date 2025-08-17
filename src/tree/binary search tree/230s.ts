@@ -1,5 +1,5 @@
 /* 230. k-th smallest integer in a BST */
-// #: bst + dfs + recursion
+// #: bst + dfs
 import { TreeNode, BinaryTree } from "../tree";
 
 class src230 {

@@ -1,5 +1,5 @@
 /* 199. binary tree right side view */
-// #: tree + BFS/DFS + recursion
+// #: tree + BFS/DFS
 import { TreeNode, BinaryTree } from "../tree";
 
 class src199 {

@@ -1,6 +1,6 @@
 /* 206. reverse linked list */
 // #: llist
-import { createSLList, ListNode, printSLList } from "./linked list";
+import { ListNode, SinglyLinkedList } from "./linked list";
 
 class src206 {
     reverseList(head: ListNode | null): ListNode | null {
@@ -19,12 +19,11 @@ class src206 {
 
     public static main(): void {
         // add linked list
-        const head: ListNode | null = createSLList([0, 1, 2, 3, 4]);
+        const head: ListNode | null = SinglyLinkedList.createSLList([0, 1, 2, 3, 4]);
 
         // reverse the order of linked list
         let ans: ListNode | null = new src206().reverseList(head);
-
-        printSLList(ans);
+        SinglyLinkedList.printSLList(ans);
     }
 }
 

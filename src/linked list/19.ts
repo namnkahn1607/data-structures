@@ -1,6 +1,6 @@
 /* 19. remove node from end of list */
 // #: llist
-import { createSLList, ListNode, printSLList } from "./linked list";
+import { ListNode, SinglyLinkedList } from "./linked list";
 
 class src19 {
     removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
@@ -28,12 +28,12 @@ class src19 {
 
     public static main(): void {
         // add linked list
-        const head: ListNode | null = createSLList([1, 2, 4, 8, 16]);
+        const head: ListNode | null = SinglyLinkedList.createSLList([1, 2, 4, 8, 16]);
         const n: number = 2;
 
         // delete the n-th node from end of list
         let ans: ListNode | null = new src19().removeNthFromEnd(head, n);
-        printSLList(ans);
+        SinglyLinkedList.printSLList(ans);
     }
 }
 

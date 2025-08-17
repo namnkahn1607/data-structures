@@ -1,5 +1,5 @@
 /* 235. lowest common ancestor of a BST */
-// #: bst + DFS + recursion
+// #: bst + DFS
 import { TreeNode, BinaryTree } from "../tree";
 import { BST } from "../bs tree";
 

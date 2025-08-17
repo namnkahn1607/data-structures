@@ -1,5 +1,5 @@
 /* 226. invert binary tree */
-// #: tree + BFS + recursion
+// #: tree + BFS
 import { BinaryTree, TreeNode } from "../tree";
 
 class src226 {

@@ -1,5 +1,5 @@
 /* 1325. delete leaves with a given value */
-// #: tree + DFS + recursion
+// #: tree + DFS
 import { TreeNode, BinaryTree } from "../tree";
 
 class src1325 {

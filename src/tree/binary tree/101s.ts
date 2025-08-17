@@ -1,5 +1,5 @@
 /* 101. symmetric binary tree */
-// #: tree + DFS/BFS + recursion
+// #: tree + DFS/BFS
 import { TreeNode, BinaryTree } from "../tree";
 
 class src101 {

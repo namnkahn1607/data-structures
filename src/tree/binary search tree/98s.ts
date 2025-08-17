@@ -1,5 +1,5 @@
 /* 98. validate binary search tree */
-// #: bst + DFS + recursion
+// #: bst + DFS
 import { TreeNode, BinaryTree } from "../tree";
 
 class src98 {

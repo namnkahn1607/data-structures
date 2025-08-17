@@ -1,5 +1,5 @@
 /* 100. same binary tree */
-// #: tree + DFS + recursion
+// #: tree + DFS
 import { TreeNode, BinaryTree } from "../tree";
 import { compareArray } from "../../packages";
 

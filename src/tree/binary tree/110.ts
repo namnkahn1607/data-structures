@@ -1,5 +1,5 @@
 /* 110. balanced binary tree */
-// #: tree + DFS + recursion
+// #: tree + DFS
 import { BinaryTree, TreeNode } from "../tree";
 
 class src110 {

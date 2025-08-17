@@ -1,7 +1,7 @@
 /* 21. merge 2 sorted lists */
 // #: llist + recursion
 
-import { createSLList, ListNode, printSLList } from "./linked list";
+import { ListNode, SinglyLinkedList } from "./linked list";
 
 class src21 {
     // 1. recursion
@@ -41,18 +41,18 @@ class src21 {
 
     public static main(): void {
         // add 2 linked lists
-        const l1: ListNode | null = createSLList([2, 4, 6, 8, 10]);
-        const l2: ListNode | null = createSLList([1, 3]);
+        const l1: ListNode | null = SinglyLinkedList.createSLList([2, 4, 6, 8, 10]);
+        const l2: ListNode | null = SinglyLinkedList.createSLList([1, 3]);
 
-        const l3: ListNode | null = createSLList([1, 3, 5]);
-        const l4: ListNode | null = createSLList([2, 4, 6]);
+        const l3: ListNode | null = SinglyLinkedList.createSLList([1, 3, 5]);
+        const l4: ListNode | null = SinglyLinkedList.createSLList([2, 4, 6]);
 
         // merge 2 lists into one
         let ans1 = new src21().mergeTwoLists(l1, l2);
-        printSLList(ans1);
+        SinglyLinkedList.printSLList(ans1);
 
         let ans2 = new src21().mergeTwoLists2(l3, l4);
-        printSLList(ans2);
+        SinglyLinkedList.printSLList(ans2);
     }
 }
 

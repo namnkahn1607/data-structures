@@ -1,6 +1,6 @@
 /* 2. add 2 numbers */
 // #: llist + recursion
-import { createSLList, ListNode, printSLList } from "./linked list";
+import { ListNode, SinglyLinkedList } from "./linked list";
 
 class src2 {
     // 1. recursion
@@ -52,18 +52,18 @@ class src2 {
 
     public static main(): void {
         // add 2 linked lists
-        const l1: ListNode | null = createSLList([1, 2, 3]);
-        const l2: ListNode | null = createSLList([7, 8, 9]);
+        const l1: ListNode | null = SinglyLinkedList.createSLList([1, 2, 3]);
+        const l2: ListNode | null = SinglyLinkedList.createSLList([7, 8, 9]);
 
-        const l3: ListNode | null = createSLList([2, 4, 6]);
-        const l4: ListNode | null = createSLList([1, 3, 5]);
+        const l3: ListNode | null = SinglyLinkedList.createSLList([2, 4, 6]);
+        const l4: ListNode | null = SinglyLinkedList.createSLList([1, 3, 5]);
 
         // add 2 numbers into one
         let ans1: ListNode | null = new src2().addTwoNumbers(l1, l2);
-        printSLList(ans1);
+        SinglyLinkedList.printSLList(ans1);
 
         let ans2: ListNode | null = new src2().addTwoNumbers2(l3, l4);
-        printSLList(ans2);
+        SinglyLinkedList.printSLList(ans2);
     }
 }
 

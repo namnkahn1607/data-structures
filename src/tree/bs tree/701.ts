@@ -1,6 +1,6 @@
 /* 701. insert into a binary search tree */
 // #: bst + recursion
-import { TreeNode, BinaryTree } from "../tree";
+import { TreeNode, BinaryTree } from "../binary tree";
 
 class src701 {
     // 1. recursive

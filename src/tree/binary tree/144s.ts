@@ -1,6 +1,6 @@
 /* 144. binary tree preorder traversal */
 // #: tree + DFS
-import { BinaryTree, TreeNode } from "../tree";
+import { BinaryTree, TreeNode } from "../binary tree";
 
 class src144 {
     // 1. iterative
@@ -34,7 +34,7 @@ class src144 {
         let ans: number[] = new src144().preorderTraversal(root);
         console.log(ans.join(" "));
 
-        console.log(BinaryTree.preorderTraverse(root).join(" "));
+        console.log(BinaryTree.preOrder(root).join(" "));
     }
 }
 

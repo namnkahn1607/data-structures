@@ -1,6 +1,6 @@
 /* 199. binary tree right side view */
 // #: tree + BFS/DFS
-import { TreeNode, BinaryTree } from "../tree";
+import { TreeNode, BinaryTree } from "../binary tree";
 
 class src199 {
     // 1. BFS

@@ -1,6 +1,6 @@
 /* 104. maximum depth of binary tree */
 // #: tree + BFS/DFS + divide n conquer
-import { TreeNode, BinaryTree } from "../tree";
+import { TreeNode, BinaryTree } from "../binary tree";
 
 class src104 {
     // 1. BFS

@@ -1,6 +1,6 @@
 /* 98. validate binary search tree */
 // #: bst + DFS
-import { TreeNode, BinaryTree } from "../tree";
+import { TreeNode, BinaryTree } from "../binary tree";
 
 class src98 {
     // 1. recursive DFS

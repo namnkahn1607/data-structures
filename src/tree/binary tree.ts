@@ -6,7 +6,7 @@ export class TreeNode {
 
 export class BinaryTree {
     public static createBinaryTree(arr: (number | null)[]): TreeNode | null {
-        if (arr === null || arr.length === 0 || arr[0] === null)
+        if (!arr?.length || arr[0] === null || arr[0] === undefined)
             return null;
 
         const root: TreeNode = new TreeNode(arr[0]);
@@ -80,55 +80,55 @@ export class BinaryTree {
         return null;
     }
 
-    public static preorderTraverse(root: TreeNode | null): number[] {
+    public static preOrder(root: TreeNode | null): number[] {
         const arr: number[] = [];
 
-        function preorder(node: TreeNode | null, arr: number[]): void {
+        function dfs(node: TreeNode | null, arr: number[]): void {
             if (!node) return;
 
             arr.push(node.val);
-            preorder(node.left, arr);
-            preorder(node.right, arr);
+            dfs(node.left, arr);
+            dfs(node.right, arr);
         }
 
-        preorder(root, arr);
+        dfs(root, arr);
 
         return arr;
     }
 
-    public static inorderTraverse(root: TreeNode | null): number[] {
+    public static inOrder(root: TreeNode | null): number[] {
         const arr: number[] = [];
 
-        function inorder(node: TreeNode | null, arr: number[]): void {
+        function dfs(node: TreeNode | null, arr: number[]): void {
             if (!node) return;
 
-            inorder(node.left, arr);
+            dfs(node.left, arr);
             arr.push(node.val);
-            inorder(node.right, arr);
+            dfs(node.right, arr);
         }
 
-        inorder(root, arr);
+        dfs(root, arr);
 
         return arr;
     }
 
-    public static postorderTraverse(root: TreeNode | null): number[] {
+    public static postOrder(root: TreeNode | null): number[] {
         const arr: number[] = [];
 
-        function postorder(node: TreeNode | null, arr: number[]): void {
+        function dfs(node: TreeNode | null, arr: number[]): void {
             if (!node) return;
 
-            postorder(node.left, arr);
-            postorder(node.right, arr);
+            dfs(node.left, arr);
+            dfs(node.right, arr);
             arr.push(node.val);
         }
 
-        postorder(root, arr);
+        dfs(root, arr);
 
         return arr;
     }
 
-    public static levelOrderTraverse(root: TreeNode | null): number[] {
+    public static levelOrder(root: TreeNode | null): number[] {
         if (!root) return [];
 
         const arr: number[] = [];

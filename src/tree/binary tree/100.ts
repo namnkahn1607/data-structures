@@ -1,6 +1,6 @@
 /* 100. same binary tree */
 // #: tree + DFS
-import { TreeNode, BinaryTree } from "../tree";
+import { TreeNode, BinaryTree } from "../binary tree";
 import { compareArray } from "../../packages";
 
 class src100 {

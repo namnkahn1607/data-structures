@@ -1,6 +1,6 @@
 /* 450. delete node in a BST */
 // #: bst + DFS
-import { TreeNode, BinaryTree } from "../tree";
+import { TreeNode, BinaryTree } from "../binary tree";
 
 class src450 {
     deleteNode(root: TreeNode | null, key: number): TreeNode | null {

@@ -1,6 +1,6 @@
 /* 230. k-th smallest integer in a BST */
 // #: bst + dfs
-import { TreeNode, BinaryTree } from "../tree";
+import { TreeNode, BinaryTree } from "../binary tree";
 
 class src230 {
     // 1. iterative DFS

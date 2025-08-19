@@ -1,6 +1,6 @@
 /* 1161. maximum level sum of a binary tree */
 // #: tree + BFS
-import { TreeNode, BinaryTree } from "../tree";
+import { TreeNode, BinaryTree } from "../binary tree";
 
 class src1161 {
     maxLevelSum(root: TreeNode | null): number {

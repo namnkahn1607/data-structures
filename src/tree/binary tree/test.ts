@@ -1,4 +1,4 @@
-import { BinaryTree, TreeNode } from "../tree";
+import { BinaryTree, TreeNode } from "../binary tree";
 
 class Test {
     revealAllPaths(root: TreeNode | null): number[][] {

@@ -1,6 +1,6 @@
 /* 1325. delete leaves with a given value */
 // #: tree + DFS
-import { TreeNode, BinaryTree } from "../tree";
+import { TreeNode, BinaryTree } from "../binary tree";
 
 class src1325 {
     // 1. recursive DFS

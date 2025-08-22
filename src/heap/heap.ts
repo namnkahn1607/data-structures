@@ -1,7 +1,15 @@
 /* data structures: Max Heap & Min Heap */
 
-export class MaxHeap {
-    constructor(protected heap: number[] = [0]) {}
+class MaxHeap {
+    protected readonly heap: number[];
+
+    constructor(nums: number[] = [0]) {
+        this.heap = [0, ...nums];
+        let cur = Math.trunc((this.heap.length - 1) / 2)
+
+        while (cur > 0)
+            this.shrink(cur--);
+    }
 
     public push(val: number): void {
         const arr: number[] = this.heap;
@@ -23,11 +31,28 @@ export class MaxHeap {
     public pop(): number | undefined {
         if (this.isEmpty()) return undefined;
 
-        const arr: number[] = this.heap;
-        const [ans, m] = [arr[1], arr.length];
-
+        const [arr, ans] = [this.heap, this.heap[1]];
         arr[1] = arr.pop()!;
-        let i = 1;
+
+        this.shrink(1);
+
+        return ans;
+    }
+
+    public isEmpty(): boolean {
+        return this.heap.length === 1;
+    }
+
+    public top(): number | undefined {
+        return (this.isEmpty()) ? undefined : this.heap[1];
+    }
+
+    public getHeap(): number[] {
+        return this.heap.slice(1);
+    }
+
+    protected shrink(i: number): void {
+        const [arr, m] = [this.heap, this.heap.length];
 
         while (2 * i < m) {
             const [left, right] = [2 * i, 2 * i + 1];
@@ -42,24 +67,10 @@ export class MaxHeap {
             } else
                 break;
         }
-
-        return ans;
-    }
-
-    public isEmpty(): boolean {
-        return this.heap.length === 1;
-    }
-
-    public top(): number | undefined {
-        return (this.isEmpty()) ? undefined : this.heap[1];
-    }
-
-    public getHeap(): number[] {
-        return this.heap;
     }
 }
 
-export class MinHeap extends MaxHeap {
+class MinHeap extends MaxHeap {
     public push(val: number): void {
         const arr: number[] = this.heap;
         arr.push(val);
@@ -77,20 +88,14 @@ export class MinHeap extends MaxHeap {
         }
     }
 
-    public pop(): number | undefined {
-        if (this.isEmpty()) return undefined;
-
-        const arr: number[] = this.heap;
-        const [ans, m] = [arr[1], arr.length];
-
-        arr[1] = arr.pop()!;
-        let i = 1;
+    protected shrink(i: number): void {
+        const [arr, m] = [this.heap, this.heap.length];
 
         while (2 * i < m) {
             const [left, right] = [2 * i, 2 * i + 1];
             let lowest = left;
 
-            if (right < m && arr[right] > arr[left])
+            if (right < m && arr[right] < arr[left])
                 lowest = right;
 
             if (arr[i] > arr[lowest]) {
@@ -99,7 +104,5 @@ export class MinHeap extends MaxHeap {
             } else
                 break;
         }
-
-        return ans;
     }
 }

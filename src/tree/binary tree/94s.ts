@@ -1,9 +1,9 @@
 /* 94. binary tree inorder traversal */
-// #: tree + DFS
+// #: tree + dfs
 import { BinaryTree, TreeNode } from "../binary tree";
 
 class src94 {
-    // 1. iterative
+    // 1. iterative DFS
     inorderTraversal(root: TreeNode | null): number[] {
         const ans: number[] = [];
         const stack: TreeNode[] = [];

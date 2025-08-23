@@ -1,15 +1,15 @@
 /* 226. invert binary tree */
-// #: tree + BFS
+// #: tree + bfs/dfs
 import { BinaryTree, TreeNode } from "../binary tree";
+import { Queue } from "datastructures-js";
 
 class src226 {
-    // 1. iterative BFS
+    // 1. BFS
     invertTree(root: TreeNode | null): TreeNode | null {
-        const queue: (TreeNode | null)[] = [root];
-        let i = 0;
+        const queue = new Queue<TreeNode | null>([root]);
 
-        while (i < queue.length) {
-            const cur = queue[i++];
+        while (!queue.isEmpty()) {
+            const cur = queue.pop();
 
             if (cur) {
                 [cur.left, cur.right] = [cur.right, cur.left];

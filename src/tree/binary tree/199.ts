@@ -1,6 +1,7 @@
 /* 199. binary tree right side view */
-// #: tree + BFS/DFS
+// #: tree + dfs/bfs
 import { TreeNode, BinaryTree } from "../binary tree";
+import { Deque } from "datastructures-js";
 
 class src199 {
     // 1. BFS
@@ -8,24 +9,23 @@ class src199 {
         if (!root) return [];
 
         const ans: number[] = [];
-        const queue: TreeNode[] = [root];
-        let i = 0;
+        const deque = new Deque<TreeNode>([root]);
 
-        while (i < queue.length) {
-            ans.push(queue[queue.length - 1].val);
-            const levelLen = queue.length;
+        while (!deque.isEmpty()) {
+            const levelLen = deque.size();
+            ans.push(deque.back().val);
 
-            while (i < levelLen) {
-                const cur = queue[i++];
+            for (let i = 0; i < levelLen; ++i) {
+                const cur: TreeNode = deque.popFront();
 
-                if (cur.left) queue.push(cur.left);
-                if (cur.right) queue.push(cur.right);
+                if (cur.left) deque.pushBack(cur.left);
+                if (cur.right) deque.pushBack(cur.right);
             }
         }
 
         return ans;
     }
-
+    
     // 2. recursive DFS
     rightSideView2(root: TreeNode | null): number[] {
         const ans: number[] = [];

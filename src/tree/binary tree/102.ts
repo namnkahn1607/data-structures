@@ -1,30 +1,31 @@
 /* 102. binary tree level order traversal */
-// #: tree + BFS/DFS
+// #: tree + dfs/bfs
 import { TreeNode, BinaryTree } from "../binary tree";
+import { Queue } from "datastructures-js";
 
 class src102 {
     // 1. BFS
     levelOrder(root: TreeNode | null): number[][] {
-        if (root === null) return [];
+        if (!root) return [];
 
         const ans: number[][] = [];
         let level: number[] = [];
 
-        const queue: TreeNode[] = [root];
-        let [i, levelLen] = [0, 1];
+        const queue = new Queue<TreeNode>([root]);
+        let levelLen = queue.size();
 
-        while (i < queue.length) {
-            const cur = queue[i++];
+        while (!queue.isEmpty()) {
+            const cur: TreeNode = queue.pop()!;
             level.push(cur.val);
             --levelLen;
 
-            if (cur.left) queue.push(cur.left);
-            if (cur.right) queue.push(cur.right);
+            if (cur.left) queue.enqueue(cur.left);
+            if (cur.right) queue.enqueue(cur.right);
 
             if (levelLen === 0) {
                 ans.push(level);
                 level = [];
-                levelLen = queue.length - i;
+                levelLen = queue.size();
             }
         }
 

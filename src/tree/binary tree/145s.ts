@@ -1,5 +1,5 @@
 /* 145. binary tree postorder traversal */
-// #: tree + DFS
+// #: tree + dfs
 import { BinaryTree, TreeNode } from "../binary tree";
 
 class src145 {

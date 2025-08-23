@@ -1,27 +1,26 @@
 /* 104. maximum depth of binary tree */
-// #: tree + BFS/DFS + divide n conquer
+// #: tree + dfs/bfs + divide n conquer
 import { TreeNode, BinaryTree } from "../binary tree";
+import { Queue } from "datastructures-js";
 
 class src104 {
     // 1. BFS
     maxDepth(root: TreeNode | null): number {
         if (!root) return 0;
 
-        const queue: TreeNode[] = [root];
-        let i = 0;
+        const queue = new Queue<TreeNode>([root]);
+        let [depth, levelLen] = [0, queue.size()];
 
-        let levelLen = 1, depth = 0;
-
-        while (i < queue.length) {
-            const cur = queue[i++];
+        while (!queue.isEmpty()) {
+            const cur: TreeNode = queue.pop()!;
             --levelLen;
 
-            if (cur.left) queue.push(cur.left);
-            if (cur.right) queue.push(cur.right);
+            if (cur.left) queue.enqueue(cur.left);
+            if (cur.right) queue.enqueue(cur.right);
 
             if (levelLen === 0) {
                 ++depth;
-                levelLen = queue.length - i;
+                levelLen = queue.size();
             }
         }
 

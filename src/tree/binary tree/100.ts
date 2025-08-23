@@ -1,5 +1,5 @@
 /* 100. same binary tree */
-// #: tree + DFS
+// #: tree + dfs
 import { TreeNode, BinaryTree } from "../binary tree";
 import { compareArray } from "../../packages";
 
@@ -56,3 +56,5 @@ class src100 {
 }
 
 src100.main();
+
+// linked problem: 572

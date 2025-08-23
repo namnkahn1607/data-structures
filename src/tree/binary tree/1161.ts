@@ -1,29 +1,27 @@
 /* 1161. maximum level sum of a binary tree */
-// #: tree + BFS
+// #: tree + bfs
 import { TreeNode, BinaryTree } from "../binary tree";
+import { Queue } from "datastructures-js";
 
 class src1161 {
     maxLevelSum(root: TreeNode | null): number {
         if (!root) return -1;
 
-        const queue: TreeNode[] = [root];
-        let [i, curLevel] = [0, 0];
+        const queue = new Queue<TreeNode>([root]);
+        let [curLevel, maxSum, resLevel] = [0, Number.MIN_SAFE_INTEGER, -1];
 
-        let [maxSum, resLevel] = [Number.MIN_SAFE_INTEGER, -1];
-
-        while (i < queue.length) {
+        while (!queue.isEmpty()) {
             ++curLevel;
-
-            const levelLen = queue.length;
+            const levelLen = queue.size();
             let curSum = 0;
 
-            while (i < levelLen) {
-                const cur: TreeNode = queue[i++];
+            for (let i = 0; i < levelLen; ++i) {
+                const cur: TreeNode = queue.pop()!;
 
                 curSum += cur.val;
 
-                if (cur.left) queue.push(cur.left);
-                if (cur.right) queue.push(cur.right);
+                if (cur.left) queue.enqueue(cur.left);
+                if (cur.right) queue.enqueue(cur.right);
             }
 
             if (curSum > maxSum) {

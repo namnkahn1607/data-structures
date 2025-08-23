@@ -1,9 +1,9 @@
 /* 144. binary tree preorder traversal */
-// #: tree + DFS
+// #: tree + dfs
 import { BinaryTree, TreeNode } from "../binary tree";
 
 class src144 {
-    // 1. iterative
+    // 1. iterative DFS
     preorderTraversal(root: TreeNode | null): number[] {
         const ans: number[] = [];
         const stack: (TreeNode | null)[] = [];

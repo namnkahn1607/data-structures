@@ -1,4 +1,5 @@
 /* data structures: Binary Tree */
+import { Queue } from "datastructures-js";
 
 export class TreeNode {
     constructor(public val: number, public left: TreeNode | null = null, public right: TreeNode | null = null) {}
@@ -10,26 +11,25 @@ export class BinaryTree {
             return null;
 
         const root: TreeNode = new TreeNode(arr[0]);
+        const queue = new Queue<TreeNode>([root]);
+        let i = 1;
 
-        const queue: TreeNode[] = [root];
-        let i = 0, j = 1;
+        while (!queue.isEmpty() && i < arr.length) {
+            const cur = queue.pop()!;
 
-        while (i < queue.length && j < arr.length) {
-            const cur: TreeNode = queue[i++];
-
-            if (arr[j] !== null) {
-                cur.left = new TreeNode(arr[j]!);
+            if (arr[i] !== null) {
+                cur.left = new TreeNode(arr[i]!);
                 queue.push(cur.left);
             }
 
-            ++j;
+            ++i;
 
-            if (j < arr.length && arr[j] !== null) {
-                cur.right = new TreeNode(arr[j]!);
+            if (i < arr.length && arr[i] !== null) {
+                cur.right = new TreeNode(arr[i]!);
                 queue.push(cur.right);
             }
 
-            ++j;
+            ++i;
         }
 
         return root;

@@ -1,5 +1,5 @@
 /* 1448. count good nodes in binary tree */
-// #: tree + DFS
+// #: tree + dfs
 import { TreeNode, BinaryTree } from "../binary tree";
 
 class src1448 {

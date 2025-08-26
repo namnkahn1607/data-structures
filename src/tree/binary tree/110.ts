@@ -5,24 +5,24 @@ import { BinaryTree, TreeNode } from "../binary tree";
 class src110 {
     // 1. recursive DFS
     isBalanced(root: TreeNode | null): boolean {
-        return this.balancedNode(root) !== -1;
-    }
+        const balancedNode = function(node: TreeNode | null): number {
+            if (!node) return 0;
 
-    private balancedNode(node: TreeNode | null): number {
-        if (!node) return 0;
+            const left = balancedNode(node.left);
 
-        const left = this.balancedNode(node.left);
+            if (left === -1) return -1;
 
-        if (left === -1) return -1;
+            const right = balancedNode(node.right);
 
-        const right = this.balancedNode(node.right);
+            if (right === -1) return -1;
 
-        if (right === -1) return -1;
+            if (Math.abs(left - right) > 1)
+                return -1;
 
-        if (Math.abs(left - right) > 1)
-            return -1;
+            return 1 + Math.max(left, right);
+        };
 
-        return 1 + Math.max(left, right);
+        return balancedNode(root) !== -1;
     }
 
     // 2. iterative DFS

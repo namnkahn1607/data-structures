@@ -1,6 +1,5 @@
 /* 21. merge 2 sorted lists */
 // #: llist + recursion
-
 import { ListNode, SinglyLinkedList } from "./linked list";
 
 class src21 {

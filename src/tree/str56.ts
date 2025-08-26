@@ -1,6 +1,6 @@
 /* structy-56: tree includes */
-// #: tree + recursion
-import { TreeNode, BinaryTree } from "./tree";
+// #: tree + dfs
+import { BinaryTree, TreeNode } from "./binary tree";
 
 class strty56 {
     treeIncludes(root: TreeNode | null, target: number): boolean {

@@ -5,18 +5,18 @@ import { TreeNode, BinaryTree } from "../binary tree";
 class src101 {
     // 1. recursive DFS
     isSymmetric(root: TreeNode | null): boolean {
-        return this.isMirrorNode(root, root);
-    }
+        const isMirrorNode = function(node1: TreeNode | null, node2: TreeNode | null): boolean {
+            if (!node1 && !node2)
+                return true;
 
-    private isMirrorNode(node1: TreeNode | null, node2: TreeNode | null): boolean {
-        if (!node1 && !node2)
-            return true;
+            if (!node1 || !node2 || node1.val !== node2.val)
+                return false;
 
-        if (!node1 || !node2 || node1.val !== node2.val)
-            return false;
+            return isMirrorNode(node1.left, node2.right)
+                && isMirrorNode(node1.right, node2.left);
+        };
 
-        return this.isMirrorNode(node1.left, node2.right)
-            && this.isMirrorNode(node1.right, node2.left);
+        return isMirrorNode(root, root);
     }
 
     public static main(): void {

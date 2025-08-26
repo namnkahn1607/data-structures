@@ -30,20 +30,20 @@ class src199 {
     rightSideView2(root: TreeNode | null): number[] {
         const ans: number[] = [];
 
-        this.treeTraversal(root, ans, 0);
+        const treeTraversal = function(node: TreeNode | null, depth: number): void {
+            if (!node)
+                return;
+
+            if (depth === ans.length)
+                ans.push(node.val);
+
+            treeTraversal(node.right, depth + 1);
+            treeTraversal(node.left, depth + 1);
+        };
+
+        treeTraversal(root, 0);
 
         return ans;
-    }
-
-    private treeTraversal(node: TreeNode | null, ans: number[], depth: number) {
-        if (!node)
-            return;
-
-        if (depth === ans.length)
-            ans.push(node.val);
-
-        this.treeTraversal(node.right, ans, depth + 1);
-        this.treeTraversal(node.left, ans, depth + 1);
     }
 
     public static main(): void {

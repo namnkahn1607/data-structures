@@ -5,22 +5,22 @@ import { TreeNode, BinaryTree } from "../binary tree";
 class src543 {
     // 1. recursive DFS
     diameterOfBinaryTree(root: TreeNode | null): number {
-        let diameter = { val: 0 };
+        let diameter = 0;
 
-        this.nodeMaxHeight(root, diameter);
+        const nodeMaxHeight = function(node: TreeNode | null): number {
+            if (!node) return 0;
 
-        return diameter.val;
-    }
+            const left = nodeMaxHeight(node.left);
+            const right = nodeMaxHeight(node.right);
 
-    private nodeMaxHeight(node: TreeNode | null, diameter: { val: number }): number {
-        if (!node) return 0;
+            diameter = Math.max(diameter, left + right);
 
-        const left = this.nodeMaxHeight(node.left, diameter);
-        const right = this.nodeMaxHeight(node.right, diameter);
+            return 1 + Math.max(left, right);
+        };
 
-        diameter.val = Math.max(diameter.val, left + right);
+        nodeMaxHeight(root);
 
-        return 1 + Math.max(left, right);
+        return diameter;
     }
 
     // 2. iterative DFS

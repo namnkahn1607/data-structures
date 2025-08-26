@@ -1,5 +1,5 @@
 /* 700. search in a binary search tree */
-// #: bst + DFS
+// #: bst + dfs
 import { TreeNode, BinaryTree } from "../binary tree";
 
 class src700 {

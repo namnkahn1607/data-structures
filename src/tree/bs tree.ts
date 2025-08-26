@@ -1,6 +1,6 @@
 /* data structures: Binary Search Tree */
 
-import { TreeNode, BinaryTree } from "./tree";
+import { BinaryTree, TreeNode } from "./binary tree";
 
 export class BST extends BinaryTree {
     public static search(root: TreeNode | null, target: number): TreeNode | null {

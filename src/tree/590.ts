@@ -1,5 +1,5 @@
 /* 590. n-ary tree postorder traversal */
-// #: tree
+// #: tree + dfs
 import { NaryTree, Node } from "./nary tree";
 
 class src590 {

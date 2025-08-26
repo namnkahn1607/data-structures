@@ -1,6 +1,6 @@
 /* structy-58: max root to leaf path sum */
-// #: tree + recursion
-import { TreeNode, BinaryTree } from "./tree";
+// #: tree + dfs
+import { BinaryTree, TreeNode } from "./binary tree";
 
 class strty58 {
     // 1. recursive DFS

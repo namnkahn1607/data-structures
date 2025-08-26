@@ -4,26 +4,26 @@ import { TreeNode, BinaryTree } from "../binary tree";
 
 class src1448 {
     // 1. recursive DFS
-    private isGood(node: TreeNode | null, ans: number[], mx: number): void {
-        if (!node) return;
-
-        if (node.val >= mx) {
-            ++ans[0];
-            mx = Math.max(mx, node.val);
-        }
-
-        this.isGood(node.left, ans, mx);
-        this.isGood(node.right, ans, mx);
-    }
-
     goodNodes(root: TreeNode | null): number {
         if (!root) return 0;
 
-        const ans: number[] = [0];
+        let ans: number = 0;
 
-        this.isGood(root, ans, root.val);
+        const isGood = function(node: TreeNode | null, mx: number): void {
+            if (!node) return;
 
-        return ans[0];
+            if (node.val >= mx) {
+                ++ans;
+                mx = Math.max(mx, node.val);
+            }
+
+            isGood(node.left, mx);
+            isGood(node.right, mx);
+        }
+
+        isGood(root, root.val);
+
+        return ans;
     }
 
     // 2. iterative DFS

@@ -39,11 +39,10 @@ export class BinaryTree {
         if (!root) return [null];
 
         const ans: (number | null)[] = [];
-        const queue: (TreeNode | null)[] = [root];
-        let i = 0;
+        const queue = new Queue<TreeNode | null>([root]);
 
-        while (i < queue.length) {
-            const cur = queue[i++];
+        while (!queue.isEmpty()) {
+            const cur: TreeNode | null = queue.pop();
 
             if (cur) {
                 ans.push(cur.val);
@@ -132,14 +131,14 @@ export class BinaryTree {
         if (!root) return [];
 
         const arr: number[] = [];
-        const queue: TreeNode[] = [root];
-        let i: number = 0;
+        const queue = new Queue<TreeNode>([root]);
 
-        while (i < queue.length) {
-            const levelLen: number = queue.length;
+        while (queue.isEmpty()) {
+            const levelLen = queue.size();
 
-            while (i < levelLen) {
-                const cur: TreeNode = queue[i++];
+            for (let i = 0; i < levelLen; ++i) {
+                const cur: TreeNode = queue.pop()!;
+
                 arr.push(cur.val);
 
                 if (cur.left) queue.push(cur.left);

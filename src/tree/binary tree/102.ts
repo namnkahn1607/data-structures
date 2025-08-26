@@ -36,23 +36,22 @@ class src102 {
     levelOrder2(root: TreeNode | null): number[][] {
         const ans: number[][] = [];
 
-        this.levelTraversal(root, ans, 0);
+        const levelTraversal = function(node: TreeNode | null, level: number): void {
+            if (!node) return;
+
+            if (level === ans.length)
+                ans.push([]);
+
+            ans[level].push(node.val);
+
+            levelTraversal(node.left, level + 1);
+            levelTraversal(node.right, level + 1);
+        };
+
+        levelTraversal(root, 0);
 
         return ans;
     }
-
-    private levelTraversal(node: TreeNode | null, ans: number[][], level: number): void {
-        if (!node) return;
-
-        if (level === ans.length)
-            ans.push([]);
-
-        ans[level].push(node.val);
-
-        this.levelTraversal(node.left, ans, level + 1);
-        this.levelTraversal(node.right, ans, level + 1);
-    }
-
 
     public static main(): void {
         // add binary tree

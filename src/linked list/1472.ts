@@ -12,13 +12,13 @@ class BrowserHistory {
         this.cur = new pageNode(homepage);
     }
 
-    public visit(url: string): void {
+    visit(url: string): void {
         const newPage = new pageNode(url, null, this.cur);
         this.cur.prev = newPage;
         this.cur = newPage;
     }
 
-    public back(steps: number): string {
+    back(steps: number): string {
         for (let i = 0; i < steps; ++i) {
             if (!this.cur.next) break;
 
@@ -28,7 +28,7 @@ class BrowserHistory {
         return this.cur.val;
     }
 
-    public forward(steps: number): string {
+    forward(steps: number): string {
         for (let i = 0; i < steps; ++i) {
             if (!this.cur.prev) break;
 

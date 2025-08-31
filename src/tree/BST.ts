@@ -1,5 +1,4 @@
 /* data structures: Binary Search Tree */
-
 import { BinaryTree, TreeNode } from "./binary tree";
 
 export class BST extends BinaryTree {

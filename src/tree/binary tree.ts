@@ -2,7 +2,11 @@
 import { Queue } from "datastructures-js";
 
 export class TreeNode {
-    constructor(public val: number, public left: TreeNode | null = null, public right: TreeNode | null = null) {}
+    constructor(
+        public val: number,
+        public left: TreeNode | null = null,
+        public right: TreeNode | null = null
+    ) {}
 }
 
 export class BinaryTree {

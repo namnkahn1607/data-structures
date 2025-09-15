@@ -1,4 +1,4 @@
-/* data structures: Max Heap & Min Heap */
+/* data structure: Max Heap & Min Heap */
 
 class MaxHeap {
     protected readonly heap: number[];

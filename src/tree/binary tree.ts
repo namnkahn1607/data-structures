@@ -1,4 +1,4 @@
-/* data structures: Binary Tree */
+/* data structure: Binary Tree */
 import { Queue } from "datastructures-js";
 
 export class TreeNode {

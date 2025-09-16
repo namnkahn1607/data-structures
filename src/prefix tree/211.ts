@@ -1,13 +1,8 @@
 /* 211. design add and search word data structure */
 // #: prefix tree
+import { TrieNode, Trie } from "./trie";
 
-import { TrieNode } from "./trie node";
-
-class WordDictionary {
-    constructor(
-        private root = new TrieNode()
-    ) {}
-
+class WordDictionary extends Trie {
     addWord(word: string): void {
         let cur: TrieNode = this.root;
 

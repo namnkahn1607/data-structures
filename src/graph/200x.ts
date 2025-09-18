@@ -6,23 +6,23 @@ class src200 {
         const [row, col] = [grid.length, grid[0].length];
         const dirs = [[0, -1], [-1, 0], [0, 1], [1, 0]];
 
-        const dfs = function(r: number, c: number): void {
-            if (r === row || c === col ||
-                Math.min(r, c) < 0 || grid[r][c] !== "1")
+        const dfs = function(R: number, C: number): void {
+            if (R === row || C === col ||
+                Math.min(R, C) < 0 || grid[R][C] !== "1")
                 return;
 
-            grid[r][c] = "#";
+            grid[R][C] = "#";
 
-            for (const [x, y] of dirs)
-                dfs(r + x, c + y);
+            for (const [dR, dC] of dirs)
+                dfs(R + dR, C + dC);
         };
 
         let ans = 0;
 
-        for (let r = 0; r < row; ++r) {
-            for (let c = 0; c < col; ++c) {
-                if (grid[r][c] === "1") {
-                    dfs(r, c);
+        for (let R = 0; R < row; ++R) {
+            for (let C = 0; C < col; ++C) {
+                if (grid[R][C] === "1") {
+                    dfs(R, C);
                     ++ans;
                 }
             }

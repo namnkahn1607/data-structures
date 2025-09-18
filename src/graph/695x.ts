@@ -6,26 +6,26 @@ class src695 {
         const [row, col] = [grid.length, grid[0].length];
         const dirs = [[0, -1], [-1, 0], [0, 1], [1, 0]];
 
-        const dfs = function(r: number, c: number): number {
-            if (r === row || c === col ||
-                Math.min(r, c) < 0 || grid[r][c] !== 1)
+        const dfs = function(R: number, C: number): number {
+            if (R === row || C === col ||
+                Math.min(R, C) < 0 || grid[R][C] !== 1)
                 return 0;
 
-            grid[r][c] = 2;
+            grid[R][C] = 2;
             let area = 1;
 
-            for (const [x, y] of dirs)
-                area += dfs(r + x, c + y);
+            for (const [dR, dC] of dirs)
+                area += dfs(R + dR, C + dC);
 
             return area;
         };
 
         let ans = 0;
 
-        for (let r = 0; r < row; ++r) {
-            for (let c = 0; c < col; ++c) {
-                if (grid[r][c] === 1)
-                    ans = Math.max(ans, dfs(r, c));
+        for (let R = 0; R < row; ++R) {
+            for (let C = 0; C < col; ++C) {
+                if (grid[R][C] === 1)
+                    ans = Math.max(ans, dfs(R, C));
             }
         }
 

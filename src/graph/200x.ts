@@ -1,7 +1,10 @@
 /* 200. number of islands */
 // #: graph dfs/bfs + disjoint set
+import { Queue } from "datastructures-js";
+import _ from "lodash";
 
 class src200 {
+    // 1. DFS
     numIslands(grid: string[][]): number {
         const [row, col] = [grid.length, grid[0].length];
         const dirs = [[0, -1], [-1, 0], [0, 1], [1, 0]];
@@ -31,6 +34,42 @@ class src200 {
         return ans;
     }
 
+    // 2. BFS
+    numIslands2(grid: string[][]): number {
+        const [row, col] = [grid.length, grid[0].length];
+        const dirs = [[0, -1], [-1, 0], [0, 1], [1, 0]];
+
+        const qu = new Queue<number[]>();
+        let island = 0;
+
+        for (let r = 0; r < row; ++r) {
+            for (let c = 0; c < col; ++c) {
+                if (grid[r][c] === "1") {
+                    qu.enqueue([r, c]);
+                    grid[r][c] = "#";
+                    ++island;
+
+                    while (!qu.isEmpty()) {
+                        const [R, C] = qu.dequeue();
+
+                        for (const [dR, dC] of dirs) {
+                            const [newR, newC] = [R + dR, C + dC];
+
+                            if (newR === row || newC === col ||
+                                Math.min(newR, newC) < 0 || grid[newR][newC] !== "1")
+                                continue;
+
+                            qu.enqueue([newR, newC]);
+                            grid[newR][newC] = "#";
+                        }
+                    }
+                }
+            }
+        }
+
+        return island;
+    }
+
     public static main(): void {
         // add water & land grid
         const grid: string[][] = [
@@ -41,8 +80,10 @@ class src200 {
         ];
 
         // calculate number of islands
-        let ans = new src200().numIslands(grid);
-        console.log(ans);
+        let ans1 = new src200().numIslands(_.cloneDeep(grid));
+        let ans2 = new src200().numIslands2(grid);
+
+        console.log(ans1, ans2);
     }
 }
 
@@ -50,4 +91,4 @@ src200.main();
 
 // linked problem: 695
 
-// bfs + disjoint set: https://neetcode.io/solutions/number-of-islands
+// disjoint set: https://neetcode.io/solutions/number-of-islands

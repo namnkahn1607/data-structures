@@ -1,4 +1,5 @@
 /* algorithms: Backtracking on Binary Trees */
+
 import { BinaryTree, TreeNode } from "./binary tree";
 
 class TreeMaze {

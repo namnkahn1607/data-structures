@@ -1,4 +1,4 @@
-/* data structure: Design Graph */
+/* data structures: Design Graph */
 
 import { Queue } from "datastructures-js";
 

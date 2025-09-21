@@ -1,7 +1,10 @@
-/* data structure: Linked List */
+/* data structures: Linked List */
 
 export class ListNode {
-    constructor(public val: number = 0, public next: ListNode | null = null) {}
+    constructor(
+        public val: number = 0,
+        public next: ListNode | null = null
+    ) {}
 }
 
 export class SinglyLinkedList {

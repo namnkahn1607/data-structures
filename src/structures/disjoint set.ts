@@ -1,4 +1,4 @@
-/* data structure: Disjoint Set */
+/* data structures: Disjoint Set */
 
 class DisjointSet {
     private readonly parent: number[];

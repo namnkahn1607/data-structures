@@ -2,6 +2,7 @@
   <dictionary name="project">
     <words>
       <w>cmds</w>
+      <w>deadends</w>
       <w>heapify</w>
       <w>leetcode</w>
       <w>llist</w>
